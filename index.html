@@ -2,451 +2,575 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>A Brilliant Mind — University Prospect Search</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" media="print" onload="this.media='all'">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --gold:#fbd99a;--teal:#a8dedc;--rose:#f499a4;--slate:#405064;
-  --slate-light:#5a7185;--slate-dark:#2d3a47;
-  --gold-light:#fef3d8;--teal-light:#e4f7f6;--rose-light:#fde8eb;
-  --g50:#f8f9fa;--g100:#f0f2f4;--g200:#e2e6ea;--g400:#8e9aab;--g700:#3d4a58;
-}
-html,body{font-family:'Georgia',serif;background:#fff;color:var(--slate-dark);min-height:100vh}
-a{color:inherit;text-decoration:none}
+:root{--gold:#fbd99a;--teal:#a8dedc;--rose:#f499a4;--slate:#405064;--sl:#5a7185;--sd:#2d3a47;--gl:#fef3d8;--tl:#e4f7f6;--rl:#fde8eb;--g50:#f8f9fa;--g100:#f0f2f4;--g200:#e2e6ea;--g400:#8e9aab;--g700:#3d4a58}
+html,body{font-family:'Georgia',serif;background:#fff;color:var(--sd);min-height:100vh}
 
-/* HEADER */
-.hdr{padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1.5px solid var(--g200);background:#fff;position:sticky;top:0;z-index:200;box-shadow:0 1px 8px rgba(64,80,100,.06)}
-.logo{height:44px;width:auto}
-.hdr-right{display:flex;align-items:center;gap:10px}
-.hdr-tag{font-family:sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate-light);padding:4px 12px;border:1px solid var(--g200);border-radius:20px}
-.hdr-btn{font-family:sans-serif;font-size:11px;font-weight:600;padding:6px 16px;border-radius:20px;border:none;cursor:pointer;transition:all .15s}
-.hdr-btn.export{background:var(--teal-light);color:#2a8a87;border:1px solid var(--teal)}
-.hdr-btn.export:hover{background:var(--teal);color:#fff}
+.hdr{padding:13px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1.5px solid var(--g200);background:#fff;position:sticky;top:0;z-index:200;box-shadow:0 1px 8px rgba(64,80,100,.06)}
+.logo{height:40px;width:auto}
+.hdr-right{display:flex;align-items:center;gap:8px}
+.hbtn{font-family:sans-serif;font-size:11px;font-weight:600;padding:6px 14px;border-radius:20px;border:none;cursor:pointer;transition:all .15s}
+.hbtn.ex{background:var(--tl);color:#2a8a87;border:1px solid var(--teal)}.hbtn.ex:hover{background:var(--teal);color:#fff}
+.lpill{display:flex;align-items:center;gap:6px;font-family:sans-serif;font-size:11px;color:#2a8a87;background:var(--tl);border:1px solid var(--teal);padding:5px 12px;border-radius:20px;font-weight:600}
+.ldot{width:7px;height:7px;border-radius:50%;background:#2a8a87;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
 
-/* HERO */
-.hero{background:linear-gradient(150deg,#fff 55%,var(--teal-light) 100%);padding:52px 40px 36px;text-align:center;border-bottom:1px solid var(--g200)}
-.eyebrow{font-family:sans-serif;font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;font-weight:600}
-.h1{font-size:36px;font-weight:400;color:var(--slate-dark);line-height:1.2;font-style:italic;margin-bottom:8px}
+.hero{background:linear-gradient(150deg,#fff 55%,var(--tl) 100%);padding:36px 40px 24px;text-align:center;border-bottom:1px solid var(--g200)}
+.ey{font-family:sans-serif;font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;font-weight:600}
+.h1{font-size:30px;font-weight:400;color:var(--sd);line-height:1.2;font-style:italic;margin-bottom:8px}
 .h1 strong{font-style:normal;color:var(--slate);font-weight:700}
-.sub{font-family:sans-serif;font-size:13px;color:var(--g400);margin-bottom:32px}
-.search-wrap{max-width:680px;margin:0 auto}
-.search-row{display:flex;gap:8px}
-.search-input{flex:1;padding:14px 20px;border:2px solid var(--g200);border-radius:12px;font-size:15px;font-family:sans-serif;color:var(--slate-dark);outline:none;transition:border-color .2s;background:#fff}
-.search-input:focus{border-color:var(--teal)}
-.search-input::placeholder{color:var(--g400)}
-.search-btn{padding:14px 24px;background:var(--slate);color:#fff;border:none;border-radius:12px;font-family:sans-serif;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:background .15s}
-.search-btn:hover{background:var(--slate-dark)}
+.sub{font-family:sans-serif;font-size:13px;color:var(--g400);margin-bottom:22px}
+.sw{max-width:620px;margin:0 auto}
+.sr{display:flex;gap:8px}
+.si{flex:1;padding:11px 16px;border:2px solid var(--g200);border-radius:12px;font-size:14px;font-family:sans-serif;color:var(--sd);outline:none;transition:border-color .2s;background:#fff}
+.si:focus{border-color:var(--teal)}.si::placeholder{color:var(--g400)}
+.sb2{padding:11px 20px;background:var(--slate);color:#fff;border:none;border-radius:12px;font-family:sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s}
+.sb2:hover{background:var(--sd)}
 
-/* FILTERS */
-.filters{background:#fff;border-bottom:1px solid var(--g200);padding:12px 40px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;position:sticky;top:77px;z-index:100;box-shadow:0 1px 4px rgba(64,80,100,.04)}
-.flabel{font-family:sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--g400);font-weight:600;white-space:nowrap}
-.dvdr{width:1px;height:22px;background:var(--g200);flex-shrink:0}
-.chip{padding:5px 14px;background:#fff;border:1.5px solid var(--g200);border-radius:20px;font-size:11px;font-family:sans-serif;color:var(--g700);cursor:pointer;transition:all .15s;font-weight:500;white-space:nowrap}
-.chip:hover{border-color:var(--teal)}
-.chip.on{background:var(--slate);color:#fff;border-color:var(--slate)}
-.chip.con.on{background:var(--teal);color:var(--slate-dark);border-color:var(--teal);font-weight:700}
-.chip.uon.on{background:var(--rose-light);color:#c45070;border-color:var(--rose)}
-#countryChips{display:flex;gap:8px;flex-wrap:wrap}
-#unitChips{display:flex;gap:8px;flex-wrap:wrap}
+.fbar{background:#fff;border-bottom:1px solid var(--g200);padding:8px 40px;display:flex;align-items:center;gap:10px;position:sticky;top:67px;z-index:100;box-shadow:0 1px 4px rgba(64,80,100,.04);flex-wrap:wrap}
+.fl{font-family:sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--g400);font-weight:600;white-space:nowrap;flex-shrink:0}
+.dv{width:1px;height:20px;background:var(--g200);flex-shrink:0}
 
-/* AGENT */
-.agent{margin:16px 40px 0;background:linear-gradient(90deg,var(--teal-light),var(--gold-light));border:1px solid var(--teal);border-radius:10px;padding:11px 18px;display:flex;align-items:center;gap:12px}
-.dot{width:9px;height:9px;border-radius:50%;background:#2a8a87;animation:pulse 1.8s ease-in-out infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.agent-txt{font-family:sans-serif;font-size:12px;color:var(--slate);line-height:1.5;flex:1}
-.agent-txt strong{color:#2a8a87}
-.vbadge{font-family:sans-serif;font-size:11px;color:var(--slate-light);background:#fff;padding:4px 12px;border-radius:20px;border:1px solid var(--teal);white-space:nowrap}
+.csw{position:relative;flex-shrink:0}
+.csb{display:flex;align-items:center;gap:6px;padding:5px 12px;background:#fff;border:1.5px solid var(--g200);border-radius:10px;cursor:pointer;font-family:sans-serif;font-size:12px;color:var(--g700);font-weight:500;transition:border-color .15s;white-space:nowrap;min-width:150px;justify-content:space-between}
+.csb:hover,.csb.op{border-color:var(--teal);color:var(--sd)}
+.csd{display:none;position:absolute;top:calc(100% + 5px);left:0;background:#fff;border:1.5px solid var(--g200);border-radius:12px;box-shadow:0 8px 32px rgba(64,80,100,.15);z-index:300;min-width:210px;max-height:300px;overflow-y:auto;padding:6px}
+.csd.op{display:block}
+.cds{width:100%;padding:6px 10px;border:1px solid var(--g200);border-radius:8px;font-family:sans-serif;font-size:12px;color:var(--sd);outline:none;margin-bottom:5px}
+.cds:focus{border-color:var(--teal)}
+.cdo{padding:6px 10px;border-radius:7px;cursor:pointer;font-family:sans-serif;font-size:12px;color:var(--g700);transition:background .1s;display:flex;align-items:center;gap:8px;font-weight:500}
+.cdo:hover,.cdo.sl{background:var(--tl);color:var(--sd)}.cdo.sl{font-weight:700;color:#2a8a87}
+.cdo .cn{margin-left:auto;font-size:10px;color:var(--g400)}
 
-/* STATS */
-.stats{display:flex;gap:12px;padding:16px 40px;flex-wrap:wrap}
-.sc{flex:1;min-width:90px;background:var(--g50);border:1px solid var(--g200);border-radius:10px;padding:14px 10px;text-align:center}
-.sn{font-size:24px;font-weight:700;font-family:sans-serif}
+.uch{display:flex;gap:6px;flex-wrap:wrap}
+.chip{padding:4px 12px;background:#fff;border:1.5px solid var(--g200);border-radius:20px;font-size:11px;font-family:sans-serif;color:var(--g700);cursor:pointer;transition:all .15s;font-weight:500;white-space:nowrap}
+.chip:hover{border-color:var(--teal)}.chip.on{background:var(--slate);color:#fff;border-color:var(--slate)}
+
+.sbar{display:flex;align-items:center;justify-content:space-between;padding:6px 40px;background:var(--g50);border-bottom:1px solid var(--g200);font-family:sans-serif;font-size:11px;color:var(--g400)}
+.sbl{display:flex;align-items:center;gap:8px}
+.sdot{width:6px;height:6px;border-radius:50%;background:#2a8a87}
+.stats{display:flex;gap:10px;padding:12px 40px;flex-wrap:wrap}
+.sc{flex:1;min-width:80px;background:var(--g50);border:1px solid var(--g200);border-radius:10px;padding:10px;text-align:center}
+.sn{font-size:20px;font-weight:700;font-family:sans-serif}
 .sn.t{color:#2a8a87}.sn.g{color:#8a6a00}.sn.r{color:#c45070}.sn.s{color:var(--slate)}
-.sl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--g400);font-family:sans-serif;margin-top:3px}
+.snl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--g400);font-family:sans-serif;margin-top:2px}
 
-/* RESULTS */
-.res-area{padding:0 40px 48px}
-.res-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-top:4px;flex-wrap:wrap;gap:8px}
-.res-count{font-family:sans-serif;font-size:12px;color:var(--g400)}
-.sort-row{display:flex;align-items:center;gap:8px}
-.sort-sel{font-family:sans-serif;font-size:12px;border:1.5px solid var(--g200);border-radius:8px;padding:6px 12px;color:var(--slate);background:#fff;cursor:pointer;outline:none}
-.sort-sel:focus{border-color:var(--teal)}
-.prio-toggle{font-family:sans-serif;font-size:11px;font-weight:600;padding:6px 14px;border-radius:8px;border:1.5px solid var(--rose);background:var(--rose-light);color:#c45070;cursor:pointer;transition:all .15s}
-.prio-toggle.on{background:var(--rose);color:#fff}
-.prio-toggle:hover{background:var(--rose);color:#fff}
+.ra{padding:0 40px 48px}
+.rm{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding-top:4px;flex-wrap:wrap;gap:8px}
+.rcc{font-family:sans-serif;font-size:12px;color:var(--g400)}
+.sss{font-family:sans-serif;font-size:12px;border:1.5px solid var(--g200);border-radius:8px;padding:5px 10px;color:var(--slate);background:#fff;cursor:pointer;outline:none}
+.sss:focus{border-color:var(--teal)}
 
-/* CARD */
-.card{background:#fff;border:1.5px solid var(--g200);border-radius:14px;padding:18px 20px;margin-bottom:10px;transition:border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
+@keyframes shimmer{0%{background-position:-600px 0}100%{background-position:600px 0}}
+.skel{background:linear-gradient(90deg,var(--g100) 25%,var(--g200) 50%,var(--g100) 75%);background-size:1200px 100%;animation:shimmer 1.4s infinite linear;border-radius:6px;display:inline-block}
+.skel-card{background:#fff;border:1.5px solid var(--g200);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+
+.card{background:#fff;border:1.5px solid var(--g200);border-radius:14px;padding:16px 20px;margin-bottom:10px;transition:border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
 .card:hover{border-color:var(--teal);box-shadow:0 3px 16px rgba(168,222,220,.18)}
 .card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--g200)}
-.card.pa::before{background:var(--rose)}
-.card.pb::before{background:var(--gold)}
-.card-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
-.uni-link{font-size:15px;font-weight:700;color:var(--slate-dark);font-family:sans-serif;text-decoration:none;transition:color .15s;display:inline-flex;align-items:center;gap:5px}
-.uni-link:hover{color:#2a8a87;text-decoration:underline}
-.unit-name{font-size:12px;color:#2a8a87;font-family:sans-serif;font-weight:500;margin-top:2px}
-.badges{display:flex;gap:5px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:flex-start}
-.bdg{padding:3px 9px;border-radius:20px;font-size:10px;font-family:sans-serif;font-weight:700;letter-spacing:.3px;white-space:nowrap}
-.bdg.ct{background:var(--g100);color:var(--g700);border:1px solid var(--g200)}
-.bdg.pa{background:var(--rose-light);color:#c45070;border:1px solid var(--rose)}
-.bdg.pb{background:var(--gold-light);color:#8a6a00;border:1px solid var(--gold)}
-.bdg.vr{background:var(--teal-light);color:#2a8a87;border:1px solid var(--teal)}
-.bdg.uv{background:var(--gold-light);color:#8a6a00;border:1px solid var(--gold)}
-.person-row{display:flex;align-items:center;gap:10px;margin:8px 0 2px}
+.card.nw::before{background:var(--rose)}
+.card.has-note::before{background:var(--gold)}
+
+.ch{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.ul{font-size:15px;font-weight:700;color:var(--sd);font-family:sans-serif;text-decoration:none;transition:color .15s;display:inline-flex;align-items:center;gap:5px}
+.ul:hover{color:#2a8a87;text-decoration:underline}
+.ext-icon{font-size:10px;opacity:.4}
+.un{font-size:12px;color:#2a8a87;font-family:sans-serif;font-weight:500;margin-top:2px}
+.bgs{display:flex;gap:5px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.bg{padding:3px 8px;border-radius:20px;font-size:10px;font-family:sans-serif;font-weight:700;white-space:nowrap}
+.bg.ct{background:var(--g100);color:var(--g700);border:1px solid var(--g200)}
+.bg.vr{background:var(--tl);color:#2a8a87;border:1px solid var(--teal)}
+.bg.uv{background:var(--gl);color:#8a6a00;border:1px solid var(--gold)}
+
+.prr{display:flex;align-items:center;gap:10px;margin:8px 0 2px}
 .av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:sans-serif;flex-shrink:0;color:#fff}
-.av0{background:var(--slate)}.av1{background:#2a8a87}.av2{background:#c45070}.av3{background:#8a6a00}.av4{background:#5a7185}.av5{background:#2a8a87}.av6{background:#c45070}
-.pname{font-size:14px;font-weight:700;color:var(--slate-dark);font-family:sans-serif;text-decoration:none;transition:color .15s}
-.pname:hover{color:#2a8a87;text-decoration:underline}
-.prole{font-size:11px;color:var(--g400);font-family:sans-serif;margin-top:1px}
-.noperson{font-size:12px;color:var(--g400);font-family:sans-serif;font-style:italic;margin:6px 0}
-.email-row{display:flex;align-items:center;gap:6px;margin:3px 0 3px 42px}
-.elink{font-size:12px;color:var(--slate-light);font-family:sans-serif;text-decoration:none;display:flex;align-items:center;gap:4px}
-.elink:hover{color:#2a8a87;text-decoration:underline}
-.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:8px;flex-wrap:wrap}
-.card-tags{display:flex;gap:6px;flex-wrap:wrap}
-.utag{padding:3px 9px;border-radius:20px;font-size:10px;font-family:sans-serif;font-weight:600;background:var(--g100);color:var(--g700);border:1px solid var(--g200)}
-.note{font-size:11px;color:var(--g400);font-family:sans-serif;margin-top:8px;line-height:1.6;border-top:1px solid var(--g100);padding-top:8px}
-.vbtn{padding:5px 13px;border-radius:8px;border:1.5px solid var(--rose);background:var(--rose-light);color:#c45070;font-size:11px;font-family:sans-serif;font-weight:700;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:4px}
-.vbtn:hover{background:var(--rose);color:#fff}
-.vbtn.ok{border-color:var(--teal);background:var(--teal-light);color:#2a8a87}
-.vbtn.chk{border-color:var(--gold);background:var(--gold-light);color:#8a6a00;cursor:wait}
+.av0{background:var(--slate)}.av1{background:#2a8a87}.av2{background:#c45070}.av3{background:#8a6a00}.av4{background:#5a7185}.av5{background:#1a7a77}.av6{background:#a03060}
+.pn{font-size:14px;font-weight:700;color:var(--sd);font-family:sans-serif;text-decoration:none;transition:color .15s}
+.pn:hover{color:#2a8a87;text-decoration:underline}
+.po{font-size:11px;color:var(--g400);font-family:sans-serif;margin-top:1px}
+.np{font-size:12px;color:var(--g400);font-family:sans-serif;font-style:italic;margin:6px 0}
+.er{display:flex;align-items:center;gap:6px;margin:3px 0 3px 42px}
+.el{font-size:12px;color:var(--sl);font-family:sans-serif;text-decoration:none}
+.el:hover{color:#2a8a87;text-decoration:underline}
+.nt{font-size:11px;color:var(--g400);font-family:sans-serif;margin-top:8px;line-height:1.6;border-top:1px solid var(--g100);padding-top:8px}
 
-/* LOADING */
-.loading{text-align:center;padding:60px 40px;font-family:sans-serif;color:var(--g400)}
-.loading-spin{width:36px;height:36px;border:3px solid var(--g200);border-top-color:var(--teal);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
-@keyframes spin{to{transform:rotate(360deg)}}
-.empty{text-align:center;padding:60px 40px;color:var(--g400);font-family:sans-serif}
+.card-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--g100)}
+.abt{padding:5px 11px;border-radius:8px;font-size:11px;font-family:sans-serif;font-weight:600;cursor:pointer;transition:all .15s;border:1.5px solid;display:inline-flex;align-items:center;gap:4px}
+.abt.note{border-color:var(--gold);background:var(--gl);color:#8a6a00}.abt.note:hover{background:var(--gold);color:var(--sd)}
+.abt.edit{border-color:var(--teal);background:var(--tl);color:#2a8a87}.abt.edit:hover{background:var(--teal);color:#fff}
+.abt.edited{border-color:var(--g200);background:var(--g50);color:var(--g400);cursor:default;font-size:10px;pointer-events:none}
 
-/* FOOTER */
-footer{background:var(--slate-dark);color:#fff;padding:32px 40px;font-family:sans-serif;font-size:12px}
-.foot-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.foot-logo{font-family:'Georgia',serif;font-style:italic;font-size:18px}
-.foot-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px}
-.foot-note{color:rgba(255,255,255,.5);line-height:1.7;max-width:440px}
-.foot-note a{color:var(--teal)}
-.foot-note a:hover{text-decoration:underline}
+.user-note-box{margin:8px 0 0;background:var(--gl);border:1px solid var(--gold);border-radius:8px;padding:8px 12px;font-family:sans-serif;font-size:12px;color:#6a4f00;line-height:1.6}
+.user-note-box strong{display:block;font-size:10px;color:#a07800;margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px}
 
-/* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--slate-dark);color:#fff;font-family:sans-serif;font-size:13px;padding:12px 20px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.2);z-index:999;transform:translateY(80px);opacity:0;transition:all .3s;border-left:4px solid var(--teal)}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(45,58,71,.55);z-index:400;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)}
+.modal-bg.op{display:flex}
+.modal{background:#fff;border-radius:16px;padding:28px;width:100%;max-width:500px;box-shadow:0 16px 60px rgba(0,0,0,.2);position:relative;max-height:90vh;overflow-y:auto}
+.modal-title{font-family:sans-serif;font-size:16px;font-weight:700;color:var(--sd);margin-bottom:3px}
+.modal-sub{font-family:sans-serif;font-size:12px;color:var(--g400);margin-bottom:18px}
+.modal-x{position:absolute;top:14px;right:14px;background:var(--g100);border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;color:var(--g400);display:flex;align-items:center;justify-content:center}
+.modal-x:hover{background:var(--g200)}
+.mlabel{font-family:sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sl);margin-bottom:5px;margin-top:14px;display:block}
+.mlabel:first-of-type{margin-top:0}
+.mf{width:100%;padding:9px 12px;border:1.5px solid var(--g200);border-radius:8px;font-family:sans-serif;font-size:13px;color:var(--sd);outline:none;transition:border-color .2s}
+.mf:focus{border-color:var(--teal)}
+textarea.mf{resize:vertical;min-height:90px;line-height:1.5}
+.mhint{font-family:sans-serif;font-size:11px;color:var(--g400);margin-top:6px;line-height:1.5}
+.modal-actions{display:flex;gap:8px;margin-top:20px;justify-content:flex-end}
+.mbtn{padding:8px 18px;border-radius:8px;border:none;font-family:sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.mbtn.save{background:var(--slate);color:#fff}.mbtn.save:hover{background:var(--sd)}
+.mbtn.cancel{background:var(--g100);color:var(--g700)}.mbtn.cancel:hover{background:var(--g200)}
+.mbtn.danger{background:var(--rl);color:#c45070;border:1px solid var(--rose)}.mbtn.danger:hover{background:var(--rose);color:#fff}
+
+.empty{text-align:center;padding:60px;color:var(--g400);font-family:sans-serif}
+footer{background:var(--sd);color:#fff;padding:28px 40px;font-family:sans-serif;font-size:12px}
+.fi{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.flo{font-family:'Georgia',serif;font-style:italic;font-size:17px}
+.fsu{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px}
+.fno{color:rgba(255,255,255,.5);line-height:1.7;max-width:420px}
+.fno a{color:var(--teal)}.fno a:hover{text-decoration:underline}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--sd);color:#fff;font-family:sans-serif;font-size:13px;padding:12px 20px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:999;transform:translateY(80px);opacity:0;transition:all .3s;border-left:4px solid var(--teal)}
 .toast.show{transform:translateY(0);opacity:1}
-
-@media(max-width:680px){
-  .hdr,.hero,.stats,.agent,.res-area,footer{padding-left:18px;padding-right:18px}
-  .filters{padding-left:18px;padding-right:18px;top:69px}
-  .h1{font-size:26px}
-  .hdr-tag,.hdr-btn.export{display:none}
-}
+@media(max-width:680px){.hdr,.hero,.stats,.ra,footer,.sbar{padding-left:18px;padding-right:18px}.fbar{padding-left:18px;padding-right:18px;top:63px}.h1{font-size:24px}.csb{min-width:120px}}
 </style>
 </head>
 <body>
 
 <header class="hdr">
-  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QDwRXhpZgAATU0AKgAAAAgABgESAAMAAAABAAEAAAEaAAUAAAABAAAAVgEbAAUAAAABAAAAXgExAAIAAAAjAAAAZgEyAAIAAAAUAAAAiodpAAQAAAABAAAAngAAAAAAAABIAAAAAQAAAEgAAAABQWRvYmUgSWxsdXN0cmF0b3IgMjUuMyAoTWFjaW50b3NoKQAAMjAyMTowNjoyNCAxMTowNzo0MQAABJAEAAIAAAAUAAAA1KABAAMAAAABAAEAAKACAAQAAAABAAABLKADAAQAAAABAAAAQgAAAAAyMDIxOjA2OjI0IDEzOjA3OjM4AP/hN6JodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBHSW1nPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvZy9pbWcvIiB4bWxuczpwZGY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczppbGx1c3RyYXRvcj0iaHR0cDovL25zLmFkb2JlLmNvbS9pbGx1c3RyYXRvci8xLjAvIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIDI1LjMgKE1hY2ludG9zaCkiIHhtcDpNb2RpZnlEYXRlPSIyMDIxLTA2LTI0VDExOjA3OjQxWiIgeG1wOkNyZWF0ZURhdGU9IjIwMjEtMDYtMjRUMTM6MDc6MzgrMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjEtMDYtMjRUMTM6MDc6MzgrMDI6MDAiIHBkZjpQcm9kdWNlcj0iQWRvYmUgUERGIGxpYnJhcnkgMTUuMDAiIGRjOmZvcm1hdD0iaW1hZ2UvanBlZyIgeG1wTU06UmVuZGl0aW9uQ2xhc3M9InByb29mOnBkZiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjVEMjA4OTI0OTNCRkRCMTE5MTRBODU5MEQzMTUwOEM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjZmNmRlNGJhLWRmZmItNDdlNS1iMjYxLWFiOGE0OTE0NmI5MSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2ZjZkZTRiYS1kZmZiLTQ3ZTUtYjI2MS1hYjhhNDkxNDZiOTEiIGlsbHVzdHJhdG9yOlN0YXJ0dXBQcm9maWxlPSJQcmludCI+IDx4bXA6VGh1bWJuYWlscz4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1wR0ltZzppbWFnZT0iLzlqLzRBQVFTa1pKUmdBQkFnRUFTQUJJQUFELzdRQXNVR2h2ZEc5emFHOXdJRE11TUFBNFFrbE5BKzBBQUFBQUFCQUFTQUFBQUFFQSYjeEE7QVFCSUFBQUFBUUFCLys0QURrRmtiMkpsQUdUQUFBQUFBZi9iQUlRQUJnUUVCQVVFQmdVRkJna0dCUVlKQ3dnR0JnZ0xEQW9LQ3dvSyYjeEE7REJBTURBd01EQXdRREE0UEVBOE9EQk1URkJRVEV4d2JHeHNjSHg4Zkh4OGZIeDhmSHdFSEJ3Y05EQTBZRUJBWUdoVVJGUm9mSHg4ZiYjeEE7SHg4Zkh4OGZIeDhmSHg4Zkh4OGZIeDhmSHg4Zkh4OGZIeDhmSHg4Zkh4OGZIeDhmSHg4Zkh4OGZIeDhmLzhBQUVRZ0FPQUVBQXdFUiYjeEE7QUFJUkFRTVJBZi9FQWFJQUFBQUhBUUVCQVFFQUFBQUFBQUFBQUFRRkF3SUdBUUFIQ0FrS0N3RUFBZ0lEQVFFQkFRRUFBQUFBQUFBQSYjeEE7QVFBQ0F3UUZCZ2NJQ1FvTEVBQUNBUU1EQWdRQ0JnY0RCQUlHQW5NQkFnTVJCQUFGSVJJeFFWRUdFMkVpY1lFVU1wR2hCeFd4UWlQQiYjeEE7VXRIaE14Wmk4Q1J5Z3ZFbFF6UlRrcUt5WTNQQ05VUW5rNk96TmhkVVpIVEQwdUlJSm9NSkNoZ1poSlJGUnFTMFZ0TlZLQnJ5NC9QRSYjeEE7MU9UMFpYV0ZsYVcxeGRYbDlXWjJocGFtdHNiVzV2WTNSMWRuZDRlWHA3ZkgxK2YzT0VoWWFIaUltS2k0eU5qbytDazVTVmxwZVltWiYjeEE7cWJuSjJlbjVLanBLV21wNmlwcXF1c3JhNnZvUkFBSUNBUUlEQlFVRUJRWUVDQU1EYlFFQUFoRURCQ0VTTVVFRlVSTmhJZ1p4Z1pFeSYjeEE7b2JId0ZNSFI0U05DRlZKaWN2RXpKRFJEZ2hhU1V5V2lZN0xDQjNQU05lSkVneGRVa3dnSkNoZ1pKalpGR2lka2RGVTM4cU96d3lncCYjeEE7MCtQemhKU2t0TVRVNVBSbGRZV1ZwYlhGMWVYMVJsWm1kb2FXcHJiRzF1YjJSMWRuZDRlWHA3ZkgxK2YzT0VoWWFIaUltS2k0eU5qbyYjeEE7K0RsSldXbDVpWm1wdWNuWjZma3FPa3BhYW5xS21xcTZ5dHJxK3YvYUFBd0RBUUFDRVFNUkFEOEE5VTRxN0ZYWXE3RldNZWFmekk4ciYjeEE7ZVdkWTByUnRSbmR0VTFtVllyU3p0ME0wb0RuaUpIVmQxVGx0WDdoc2FLc254VjJLdXhWMVJXbGR6dUI4c1ZkaXJzVmRpcnNWZGlycyYjeEE7VmRpcnNWZGlyc1ZkaXJzVmRpcnNWZGlyc1ZkaXFSTjU0OHNMNXdUeWViMVAwL0pidGRDMEc5RVdoNGs5QTVYNHd2WGlLOU1WVDNGWCYjeEE7WXE3RlhZcTdGWFlxN0ZYWXE4MS9ONzg1dE44ajJ5YWJZUmpVL05sOEF1bjZZbFg0bC9oU1NZTDhWQ2Zzb1BpYzlPNUNydzN5VjVROCYjeEE7NTYxK2ZPbnlhenFVayt2YWMwV3ErWkprK3phOENIV3o5UkR4UEpHU05sV2lyVmxGUXB3Syt2TUt1eFY1aitkbjV3SjVHMCtEVHRLaiYjeEE7Rjc1cjFRVTA2MG9YOU5TM0FUT2k3bXJmQ2kvdE44amlyeFR6QjVGMTJYWC9BQy81ZWt1Ym0vOEF6VzFxUk5UMWpXbm1rWWFaYTFZcCYjeEE7Rkh3SVVjZDJZanBRS216REFyNjRSZUtLdFMxQUJ5UFUwN25DcmVLdXhWYk5OREJDODB6ckZERXBlU1J5RlZWVVZMTVRzQUJpcVZlVyYjeEE7Zk4zbHZ6Ull2ZjZCcUVXb1drY2hoa2tpcjhNaWdFcXdZQmhzUWVtS3ZKVi9OL3poNXAvT1czOHMrU1BRazh0YVk5TmF2SkkvVVNXTiYjeEE7RFNkeEoxVUEvQkZ4KzAyKzY5Rlh1T0t1eFYyS3V4VjJLc2Q4OStmZkwza25SRzFiV1pXQ00zcDJ0ckVPVTg4cEZSSEVsUlUrNTJIZiYjeEE7RlVUNU84MFdmbW55MVk2L1p3elc5dmZLekxCY3J3bFFvN1JzckNwL2FRMFBjYjRxbk9LcFA1dzgxYVo1VTh0WCt2NmsxTFd4ajVsQiYjeEE7OXAzSkN4eHIvbE81Q2pGWG0zL09QZjVzK1ovUDhldXJyZHZDQnA4c2J3WE1JNEFKY21RckFVNyttSTltN2pydnVWV1pmbWorWUZwNSYjeEE7SjhzUHFMS1p0UXVYVzEwdTFWZlVlUzRrMlU4QVFXVlB0TUtpdlN0U01WZUUvd0RPTTNsZlZkYy9NUFdmTytydkpLK210TkVKNVdFaiYjeEE7dmUzSUt2OEF2Rm9yY0lpd05CVDRoVGJBcjZsd3E3RlhZcTdGWGtmNWwvOEFPUW1uZVV2TWtQbHZTdExrMTdWbFpUZnd4UHdFUVlWRSYjeEE7YWtMSVhsSUlOS2JmUGJGWHJtS3V4VkpmT0htL1JQS1dnWE91YXpNSWJTM0FBSFY1SkcreEdnRzVaai9Yb01WZUhhSDVmc3ZLOW5ybiYjeEE7NTNlY3JCaHFkMDMxblE5R2xkcEpJR3VDRWlaeksxZlVZc0tMWDkyblRmWUt2UlB5TzhpWFhscnl4THFlcmpuNW04eHluVWRZbGI3WSYjeEE7YVVsMGlKNi9CekpiL0tac1ZlajRxbHZtWHpEcHZsM1FiN1c5U2s5T3lzSW1tbFBjOFI4S0xYcXp0UlZIaWNWZkhXbS9taEJONXgxVCYjeEE7OHhkZFdPOTh5UEo2SGxyU1dKZTN0bklvczhwSCs2cmRDQWdYNG5jbHRpQzJCWDBKK1NrM2ttNit2NmhhYTVGNWc4NjM0V2JYNzkwZSYjeEE7R2Z0U09LR1pJcEV0MDJDMFduU3ZZQXE5VHhWQVdldjZKZTZuZTZYYVhzTStvNmJ3K3Yyc2Jobmg5VUVwekE2VnBpckdmTTJxZWNyNyYjeEE7elRwT2orVTU3T094dHJnU2VhYjFwSVpaNElnb2RMZjZ1eDVxWmxiWnVQaDBGY1ZZRi96bEY1OXV0TzBHMjhtNlJ6azFYekFDYnBJZyYjeEE7V2tGbXBvVkNyOFZabkhIcDlsV0dLcFplYVhkZmxuK1R0cDVLMHBpL24zemMvQTI4QnJMNjF5QWt4UmdDRldLSUNQbFViMVlFZFFxeiYjeEE7UHlWNU1oL0tuOHUzdGJJV3QxNXQxQUVnVHpSd0pkNmdZeVlyZEpKREhWRW9lSXJVN25hdUtzMjhrUSthNHZMRmtQTmx4SGM2KzZtUyYjeEE7OWFGRVJFWnlXRVE0ZkNmVFVoU1IxT0tvNDY5b1kxQjlOT28ybzFHTlZlU3k5YVAxbFYyQ29XanJ5QVppQU50emlxTmQwalJuY2hVUSYjeEE7Rm1ZN0FBYmtuRlVpbTgrK1M0Tk5zZFVsMXF6VFR0U2tFTmpkbVZmU2trTmZoRDFvS1UzcjA3NHFyK2J0VDF2Uy9MdDdxR2lhYitsOSYjeEE7VXQxVnJmVHZVRVhxL0dvZWprTnVxRXRTbTlLWXErYzlIWDh4L3dBMi93QXdrMXFXUzAwZE5EOWF6Z1FCcnBiSThXVjdtTlF3amtkcCYjeEE7UGhSK1lxUlZmN3NrQlgwQjVZOHAzMmlQRDZtdDNGM2F3V3FXa1dtaUszaHMwRWRBanh4cEg2aXNGSEgrOHA3WVZaSGlyNTQvNXlhOCYjeEE7OVhsK1cvTHZRd3NzZ3QyMUxYNWdmN3VDMVEzQWlhblRhTVNIL1lnZGNWVC9BUDV4UTBOTEQ4czVOVFlVazFlOW1sNW4vZmNGSUZIMCYjeEE7TWovZmlyQXZ6TjFiVU5idXJuOHdiaVVpMXQ1NU5FL0wvU0FPVWs5MFc5T1MvVUN2OTIzSjFOTjNWQldnSElLOXU4ZytYTEQ4dWZ5MyYjeEE7c3JDNmtnaG5nakV0L0xKSWtNY2w5Y0VWWDFHb3U4akNORDRBWVZSMzVkSHo3TG9zMTU1MWFDUFU3dTRrbHQ3QzJFWlMxdHp0SEY2ayYjeEE7WllTSGJseTVIWWpmRlViY2VlUEo5dHBkenFzMnNXcTZkWlRtMXU3a1NLVmpuRDhERzlLa01HN2ZUMHhWT1lKNExpQ080dDVGbWdtViYjeEE7WklwWTJESTZNS3F5c0tnZ2cxQkdLc2Q4OWVkOUg4citYdFV2N2k5dDQ3Mnp0WG1ndFhrUVNPOUtSZ1JzeWx1VGtBRHZpcnhyL25IRCYjeEE7OHQ3eWU5dWZQR3ZzYmk4dkdNdzlVQm1hZVNUMXVUTlhkZ2FTTnRzeFhjTWpERlgwVmlxRTFYVnROMGpUNTlSMU81anM3RzJVdlBjUyYjeEE7c0ZSVkh1ZndIZkZYekRjZm1YY2ZtSitaQzZuQjViMUh6RnBHZy84QUtQNkZib0JiU1RsalM3dnBUeUVXd0ZGS3NPZ3IxNUJVUmN0KyYjeEE7WlA1eGZtS3VnNmo5VTh1dytVSE56T0lVVytTRzU1THhTWGs1aW5rNUx4NC9aMmJZNzFWZlIvbHV3MW13MGEydE5aMU1heHFNUUltMSYjeEE7RVFMYmVydVNwTVNNNnFRdEJzZDhLcGxpcjUxLzV5anZ2TUdzK1lmSy9rRFMxWVI2bzZ6c0JYakxNOHBoaUQwL1ppb3pOMjNyMnhWNyYjeEE7VDVQOGhlVmZLT21RV2VqNmZCQThNYXBMZUNOUlBNeXJSbmxrcHlZdDg4VmVlV0htTzQ4OC9uclpYR2dLSDh0K1RMZTZnMURWQW80WCYjeEE7RnhkeG1Nd3BJUHRLckJXSGI0V1BRcVNxbE91ZWFOZDg0L252L2h2UU5WdUxPeTh1MjBpRjdSajZmMXA2SlBOT1BzT0lQVTRxcmcxZCYjeEE7UXZSbUlWWllmS1BrejhwTks4MGVkYlF6UE5MYW9aV3VaRE01bFQ0VlVPM3hGcmlkMUxsanUyS29QOGxmSjl2NUQ4a3plWS9NZHdmMCYjeEE7M3JnanZOVXVaaVhrVVA4QTNGdU9yUElUSjBGU3p0UVYyeFZpbW1SYVZxSDVtK2FmelE4NnlMcHVqK1Y3aExEVHJLNktOTWx6YndxUSYjeEE7S1J0SUNSejVxcUVsbmIvSklLck1meXNzYnJ6ZnJOeCthV3R3OEd2QTFyNVVzWDYybW5vekkwaEZhZXJjR3BKOE9oNHRRS3BPTkRqLyYjeEE7QURHL1BLNjFTZDJrOHRlUkRGYVJ3a24wNXRUalpwSG92VDkwNStNOStLanBpckwvQU13L3pTdHZMdmxuVmIvVElIdnJ1M2tYVDlQZCYjeEE7QUhobDFLVWxWdDE0bms3UmZhazRpbXhXdk9vQ3J3My9BSlZsQi9qbnlkNVoxV2I2L3dDYWRZdlpkVzg0YWtRV2FONFl4ZEN6amxCNCYjeEE7cWZUY21TbTVMSTNUaU1DdlMveisvT1BTZkx1aDZwNVlzUzl4cjk5YU5DN3hGZlR0UmNVVDk2eElJa2FNdXlLb0xiVk5CdmhWNGw1ZSYjeEE7OGhhbHIxeitYV2phbHpqdDlVYVNlMjAwZllpMHVKdldudVg3ODd0dlVLazlGQ2pjVW9GZlFYNXRmbUQ5VThoZVpVME9LV1M0aU1XayYjeEE7Vzk2bkVRdGQzYmVsTEhFMWFsb0ViYzA0aHZoclVOUXFudmxQUXRDL0xUeURhV0Vzb0VkbkdvdVpnS3ZjWFVyYnJHdlZta2xiakdnMyYjeEE7M0E2NHF6SlNTb0pCQkk2R2xSOTJLcEI1ODg0V0hrL3lucUhtRzlITkxPT3NVSTZ5ek9lTVVZLzFuSXFld3FlMkt2bnF6OHNhcHBuNSYjeEE7R2VjUHpEMTJ0eDVuODF3cCs5a0FEUjJWM2RScWFVMlgxdWZxVUczSGlLYllGVGk3djlSbjhuK1RmeWY4cnpDRFVkVnNZWDh3M3NkUyYjeEE7TFczZU1UM0kySTMrTWxxa1YyWDlyWXFtbmxUU05PODdmbTVEZDJVWWJ5VitYbHJIWmFNb3A2VXQ0TmxrVUFBRURqenFQNVkyNk5pcSYjeEE7Ty9NZlJsL01qODJOSzhtZXE0MEx5ekIra2ZNYXF4VlhlNEtHRzNJSFZtUlFhOWxacWI0cXpmejUrWVdtK1YvTCt0WEZ1dnF6YVBhRiYjeEE7bktjZlJodUpBRnRJSkRYN2NqTXZ3cUNRdTdVQldxcjVJMDd5MTVnMW55UHBLU1NTUlJhN3JZdGRKdDZrL1c3dVU4Ym05bHJ1VWhWVSYjeEE7aVh0VXNkdmlxRmZUSG52OHh0Ty9ML3kwdmw3eTlhdmU2dFpXOXZwbWx4b29lSkxxUlJIYlF5VU5XazlOV2w0Z2RBT1ZPYTFLdkM5VSYjeEE7L0xDMm44NmVYUExWNXF6YW41ejFhODlmemJmbjkvSGFrcjZvdDFZc1ZhVGdraFlPcDVFRG9BUmdWOVlQZFdHaUxwbWsyOEx1OTFKNiYjeEE7RnRDbnhOeFVjNVpwR1A3S2o0bmR1ckVEN1RDcFZOc1ZlQitmZnk4MXY4dy96dVRUZFFYVUlmSm1rVzBGeGRtWnl0cks1QlBHekMwRiYjeEE7Wks4SGI3UTR0djhBWkdLdmJyWFNiUFRkSy9SK2kyOEdueFJ4bGJXS0tOVmlqYWxGUEJhRHIxeFZnMzVJZmwzcXZrN1FOUmsxNW81diYjeEE7TWVzWDB0MXFWekczUG1BeFdQNDZMVUg0cE9uN1p4VjZQaXJpS2dqeDhOc1ZmTlVPZ2ZtOWVmblRxK3FhWjlSMWUvOEFLY01PbjJkNSYjeEE7cmFTUW9ZTGlOM2lkUkFVNXk4SGZtd05QaXJRVkZGV2RQK1gzNXUrYmJhV3g4OStacld4ME80MnV0TDBHTGk4eWJmdTJ1Smw1cXZpQiYjeEE7eXIwT0t2U1BMZmxuUS9MV2tRNlJvdG9sbll3YnJHdFNXWS9hZDJOV2QyN3N4cmlyR3Z5dy9LblMvSVVXcHZEZVRhbHFPclhCbnZOUSYjeEE7dUFCSXlobU1hVUZlbk1sbS9hWTEyMkFWVHJ6MzVRc3ZPSGxQVWZMZDdLOEZ2cUNLcG1qb1dSNDVGbGphaDYwZEFTTytLcEQ1VzhpKyYjeEE7Ykk5WlRWZk9PdkpyVFdBNGFQWTI5dUxlMmhQRXFaMlVsaTB4VTBCUDJkNkhmRlZQei84QWs5NVE4eHg2dHF6YVlzM21LNHNwNDdXViYjeEE7bmtFWnVUQVlvWldpRENJeUw4SURGYTdEd0dLcHIrV09zZVg3N3locHRsbzl3c28wbTB0cks3aFVFTkJOSENvYUtRRWZDNjArSWRRZSYjeEE7dUtzWnVQeW44MVcyczZxdmwzelFkSjh1K1liK1RVOVp0MWdEWGdsbW9aa2d1Sy9Dc2xPdEFWOThWVlB6Uy9MRFc5YjBmeXphK1Q3aSYjeEE7MjAyNDh1WGtkeGFyY1ZFU2hGNHJJRlZIVm5qWUJoVmQ5L3BWUk54K1Q4UThzNlZZNmJyZDNwL21IUzJsbVh6S285YTVsbnVrOU83ayYjeEE7bUVqRXQ2eTlQaXF0Rm9maHhWS05XLzV4eThyNmpvMmdhVkplM0JpMHE4bHZkVW5mZWJVVGNIbFA2N3FVUE5tVUJYM0tyVUR4eFZILyYjeEE7QUpnZmxWcm11K2F0TjFqeTlyQ2FDaVdENlJxTWtVZitrSlptUVNqNm9RS0k1M1N0VjRxZHZERlU4ODAvbHZZYXQ1Qmo4bzZkT2RNUyYjeEE7eVczT2wzUVVTR0dXMFpYaWRsTk9kU254ZU5TY1ZhOHVlVnZOY2wvSHFublhVN2ZVcnUwMjA2eHNvV2hzNEg2RzRJY3M4azdEWUU3SSYjeEE7SzhlcHhWbU9Ldkt2ejA4Z2VaZk9zdmxUVDdJOC9MOGVwSzJ2d0szQnhFM0VDYmNpb2pqOVJhRGVyRDZGV2MrYi9LT20rWnZLVi81WiYjeEE7dWdZYks5Z0VLbVBiMHloRFJNb0g4am9wcDAycGlyd1BXZkxEZms3NVBtalRVVHFmNWcrYVdHbTZiY3hwL2MyaXVyVEpDSk9SK0t1NSYjeEE7b2F5TXZ3N1Z4VjdsK1hQazIzOG8rVXJQU0kwVmJnRDFyNWtxVmE0a0FNbkd1L0ZOa1QvSlVZcXgzekorV25tcHZOV3FlWVBKL21KTiYjeEE7RXVQTU1kdkRyWHJXNHVHQXRVOUpKTFlrZ0szRGFoSFhlb3hWWDg0L2s3cG5tTHlEYitVRXY1clJJTG1PN2UvcDZrczBvWmpNOHdxbiYjeEE7cU5JSkdOU2Z0VU85TVZRM25uOHA3MitzUEtzWGsyOWgwUzY4ck04TmpMTWhsRWR0UENJSkhYWnVVeWhReWx1cmJrZzc0cXBlWWZ5TiYjeEE7dE5TOHI2SG85aHJsM3AxL29sdzkydXNpc3R4Tk5jVk54TEllYUgxWFpxcS9LcTlzVlI3L0FKUGFOWStVN1RSL0xWeStrNnBwdHlOUiYjeEE7c2RhS3JQT2I0S3lOTmNCeFNiMUVkbFpUdFRZYkFERlVSK1huNWU2cDVldmRSMXZ6RHJjbm1Eekpxb2pqdUwxazlLT09HSWtwRkZFQyYjeEE7VlVjbUoyQUhzTjZxczR4VjJLcEhxL25meXRvNzNxYWxmQzJiVGx0WHZBNlNIZ3Q5S1liZGhSVHlEeUtWcXRlUDdWQmlxR24vQURJOCYjeEE7bHdheEhvODJvOE5RbHVYczBqTU0vRDE0ekVyS1pmVDlJRG5jUnB5TGNTN2NRZVcyS29lOC9OZnlKWjNVMXJjWDB5eXdMZXZLVnM3MSYjeEE7NDFYVFdkTHcrb2tMSis1YU1odmk4S2ZhV3FxT1R6NTVTZVc1aFRVVmFXenU3U3d1WXdraFpMaS9LQzFRampXa2hsV2pmWjYxT3hvcSYjeEE7dnNQTy9sblVOWGJTYks3YWU3VnBJK1NReitnMGtWZlVSTG5oNkRzbkU4bFZ5UlRGVVhySG1QUk5Ha3NJOVR1bHRuMVM2U3hzRllNVCYjeEE7SmNTQWxFSEVHbGVQVTdlKzR4VkJ3K2V2S2s4VnhMRnFDT3RycVM2TGNnSkp5Uy9hWVc2d012SGtLeXNCeXB4NzFwdmlxM3l4NTg4cSYjeEE7ZVo2alJiMHpzSWxuV09XR2UyZDRYTkZsalM0U0puakoyNXFDdGUrS29HZjgxL0lVRDZoSExxTHJKcGtqUTNTZlZMc2t5SmNyWnVzSSYjeEE7RVg3L0FJM0VpeHQ2UEtoSXIxeFZFVC9tUjVNaHNyTzgvU0JsaXY0Mm10a3Q0TGllWXhSdHdrZG9JWTNsalZIK0Z5NmppZGpRNHEwLyYjeEE7NWxlU0UxQzNzVHFhdExjeFFUeFRKRk05dDZkMHpMQXozS29ZRTlWa0lYbTRxY1ZSY1BuSHlzWWJTWkwxRWgxQzR1N2Eya1pIUldtcyYjeEE7Uk1icmtXVUJSSDlWbEpacUtlT3hOUlZWTFp2elY4a3c2ZStveVhWejlSU1dHRDZ3dW4zN0t6WEJJaE1aV0E4MGtLMFYxcXBOQldwRyYjeEE7S28reDg5K1ZiNmE2aHQ3Nzk1WnhUejNJa2ltaTRSMmt6Vzl3MVpFUUgwcFl5clU2YkhvUVNxZ2wvTkx5UTdXYXBlVHUxL2NMWjJ3UyYjeEE7eXZXcmNQQkhjckUxSVR3YjBaMGY0NmJWL2xhaXFaNlY1djhBTDJxeVdjV24zUm5rdjdlVzd0a0VjcW4wWUpGaWtNZ1pWOUlySTNIaiYjeEE7SnhhdFJUWTBWUWR2K1l2azJlN3Y3VWFoNlVtbWk1TjI5eERQYnhBV1VubzNKam1tU09PVVJTVVZ6R3pVcVBIRlYxbCtZWGs2N3RydSYjeEE7NVRVUkJIWVJDNHV4ZHhUV2pwQ3hvc3ZwM0tST1VZN0JnS0U5TVZVMC9NbnlZOWxkWG4xNTQwc3pFczhNdHRjeFhGYmh4SER3dHBJbCYjeEE7bms5Vnp4VGdoNUhwaXFKMG56djVkMWJXWnRHc1paMzFHM2dqdXBvcExTN2hWWVpnREd4a2xpU1A0cTdEbFhZL3ltaXFGSDVsZVRlVyYjeEE7bzF2SlVUU3BaTGU4bWUxdTBpRTBVM29ORkZLMFFqbWs5WDRRa1RNU2VsY1ZYUDhBbVI1TlRTSjlXZStkYlcxbWl0cm1NMjF5TG1PYSYjeEE7ZGdzVWIybnAvV1F6bHh4QmozeFZnL25YeXBvK3FlZXZLLzVvWHVyUnkrVk5OdDQyanR3c2tyU1R5T1dzbnRvNGxkcERKTE1oNGdjcSYjeEE7cUtWcnNxejI1OCsrVnJhN3RiT1M2a2E3dkk0cG80SXJhNWxkSTdqYUpwMWpqY3dCdTNxOGUvaGlxakIrWlBrNjQxR1BUcmU4bG11cCYjeEE7RmtjQ08wdTNSVWhubXRuYVNWWWpIR0JOYXlyVjJGZU5Sc1JWVlN1UHpTOGlRYU5aNnkycCtwcHQvYlRYdHJQQkJjejhyZTJhTkozWiYjeEE7WW8zZFBTYVpRNFlBcnZYN0xVVlZQK1ZsK1RQcTVuK3V5MDlhSzI5SDZwZCt1WnA3Y1hhS0lQUzlZL3VHRWpIalJSOXFsRGlxbWZ6UyYjeEE7OGtpVzVoTjNjQ2EwdWhZVFJmVWI3bjlaS05KNmFMNk5aQ0kwTHR3cUF2eEdpa0hGV1Y0cTdGWFlxN0ZYbm41aS9sWko1dzErd3VXbiYjeEE7aWowazJsemFhMWJPRHpuSEJ6WkZLS1IrNW5sYVRxS2JVeFZJNC95ZTh6QnZMVnpjWDFyZDNPbkxQY2EvRzhraUpmWGx4cU1Hb01PYSYjeEE7eEZoR3NrUE1IaURWRVVyeExVVlJtby9sVjVndWJiVUk0N20wRFhjSG11S1BrOGxBM21DZEpMWGxTTTdJcWZ2ZkEvWjVZcW8zSDVOYSYjeEE7cTJzcHJFRjVCQmVEWHJIVUxnS1g0M0dtMnFXWmFDWDRLaVZKck5uaXB0dlNvNUdpcVk2UitYdm0yenVkQjA0Nm10dm9IbDJVdGJ6MiYjeEE7ZDFlUlhGM0FyRm80THUxWGhidHZ4NXlNejhnRFJWNUdpcS84eXZ5NTh4K2NOVFNTMjFHenNiQzBzWGlzVm5obHVKQmV6U3JJWndFayYjeEE7Z1dKb3ZxOGZwdjhBSDFiNGZGVkpiZjhBSnZ6Q0cwL1ZHdkxXMDF0dGVHcStZSUxkcEd0YnUxR3BuVUVTclJxM3JRMXBHM0VkU3BQRSYjeEE7NHFubjVkK1EvTTJrTm9iNi9KWktmTHVseWFUWXgyRWtzdnJDWm9Xa21tZVdPQ24rOHloWXdwcHVlV0twVnFINU1hamQ2YnF6L3BRciYjeEE7clYzcWs5M3Bjak9EYldOdGNheEZxTWhpVDBRVE04Y0NjdWZJY3hRRUxYRlViNWM4aCtjL0svQzcwbHROdTcrYTFGbHFVZDNMY0pISyYjeEE7OFZ6UGNMZXBJc1Vqbzh6M2NqeXdjU3RUUVB0VXFwYkgrVVhtaTNpMVRTSWJ1eGswanpCWjI5cnExODdTcmN4TXR6ZFhOd2JhM0NOSCYjeEE7UmplbFkrVW80VUd4cGlxS3ZmeWwxclVyY2FEZTNkdEQ1ZXRadFl1Yk83Z01odkhiV0V1VTRTUk1xeHFJZnJ6L0FCQ1E4K0kyWGZGVSYjeEE7ODFUUVBQR3VlVzVOSTFSTk1nbGp1ZE5sdDU3V1djckl0bGV4WEV6UEcwSytrV1NINEVVc0s3RnFiaFZJOVkvS1hXcjZ4U0dHOHQ0SiYjeEE7NXRYMVdUVVhCa3BMb3VzWFR6WEZzQ0VyNnBUMC93REo1QS9GVGZGVTJUOHY5VVRXVnZFbHRsdGw4empYVmpCY0VXbzBqNmdJd09GUCYjeEE7VTlYZWxlUEh2WGJGVTA4cStTbzlEOHllWnRXQWo0YTFjeHkyaW96czBjUWlEeW9Rd0NwenU1SjVhSnNlVlR2MFZZVEgrVG5tR2JWdCYjeEE7YW51THEydHJlOG12N2l6bFdlNHV5ejNHcVJhbGJjcmVWSW83ZEVNQVdaWVhQcTEzNkE0cW5Pc2VRL052bWE2WFU5YW4wL1Q5UXNJRSYjeEE7ajBtR3k5VzVoTXlYbHZlK3BjdEtrRE1qU1dVYSttQnNDM3hFNHF1MWZ5WjVyMTJTODFMV2JYU3BiMXJMOUcyZW14M04wbHY2YjNFYyYjeEE7OGs4bDBJQktzcXRDcGk0Ui9BUlhrYTF4Vk4vSi9sYlh0SzFlNzFIVjcyTy9udTlMMHF5bXVWNUI1TG14Rng2OGpLVkFDdWJoU3RENCYjeEE7MUF4Vkk0Znl0MUsyaXVMKzN2cTYybXZYV3VXTUUxeGN5NmVSTGNUdEhHOEJQR0ptaHVTSGFOS2g5L2lwdXFwZVlQeTM4MytZSTcvVSYjeEE7YmkrdE5MMTYrbjBvUS9VekpKRGF3YVhkRzQ5UlpKSTBhYWVzcmxlVWFqWlYyRlRpcWZUZVVyc2ZsdGJlV0l0T3NaWm9MV0MxK3B5WCYjeEE7Tndsc1BSS2dPbHlzVFRxNjhlYU53NUJ1L2ZGVUZvWGxmejNvRjgxMUJjMkdyeWFySFluWGJpOGFhM2xGemEyNlcwc3NQcHh5cklzaSYjeEE7UmdoRzRVYXBydnNxa09rZmxaNXMwM3pKSHFBbHRaYlI0THEzbTlPL3ZMY3FKOVN2N3hXYUNPSDByZ0NPK1FjWldBREEwOFNxaExmOCYjeEE7anRhczlPanRMSzl0a2pmeXhlYVRjV2pOSjZLNnJlV2tGdEpjUk1JNitsS2JaV2ZZR281Y1NXTkZVNjFmOHV2TTBzR3RDd2F4K3VhaCYjeEE7ZldkM3AxOUpOUEZMWlBhYWREYUM0ajlPSitVaXl4TWZUcnhkRHhZL0VSaXFyclA1ZitacDdEWFlyRjdJMytwNnlOVjAvVUpKcG9aTCYjeEE7SXJaUVc2WEVmcHhQV1pKWVdQcDE0T2g0bHFNUmlyMFpBd1JReDVNQU9UVXBVK05NVmJ4Vi85az0iIHhtcEdJbWc6d2lkdGg9IjI1NiIgeG1wR0ltZzpoZWlnaHQ9IjU2IiB4bXBHSW1nOmZvcm1hdD0iSlBFRyIvPiA8L3JkZjpBbHQ+IDwveG1wOlRodW1ibmFpbHM+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+TG9nbyBHYXlhIGZpbmFsPC9yZGY6bGk+IDwvcmRmOkFsdD4gPC9kYzp0aXRsZT4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIElsbHVzdHJhdG9yIENDIDIzLjEgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iIHN0RXZ0OndoZW49IjIwMTktMTAtMDhUMTE6MzI6MTcrMDI6MDAiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6YmM1ZWQyYTgtNjViYi00ODI1LTk0M2UtMGNmZmIxMGRlM2RmIiBzdEV2dDphY3Rpb249InNhdmVkIi8+IDxyZGY6bGkgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgSWxsdXN0cmF0b3IgMjUuMyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIgc3RFdnQ6d2hlbj0iMjAyMS0wNi0yNFQxMzowNzozOCswMjowMCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo2ZjZkZTRiYS1kZmZiLTQ3ZTUtYjI2MS1hYjhhNDkxNDZiOTEiIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjpyZW5kaXRpb25DbGFzcz0icHJvb2Y6cGRmIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjMxN2I2NjQ3LTA2ZDAtNDkxZC1iZWU3LTc3OWNiODAwNjJjOCIgc3RSZWY6aW5zdGFuY2VJRD0idXVpZDowMThlYzMxMC00YzNlLWQxNDktODE2OS1lZTI5NGVhZTMxNDAiIHN0UmVmOm9yaWdpbmFsRG9jdW1lbnRJRD0idXVpZDo1RDIwODkyNDkzQkZEQjExOTE0QTg1OTBEMzE1MDhDOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg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" class="logo" alt="A Brilliant Mind">
+  <img src="logo.jpg" class="logo" alt="A Brilliant Mind">
   <div class="hdr-right">
-    <span class="hdr-tag">University Prospect Intelligence</span>
-    <button class="hdr-btn export" onclick="exportCSV()"><i class="ti ti-download"></i> Export CSV</button>
+    <div class="lpill"><div class="ldot"></div> Live</div>
+    <button class="hbtn ex" onclick="exportCSV()">&#8595; Export CSV</button>
   </div>
 </header>
 
 <section class="hero">
-  <div class="eyebrow">European Research Universities · Scientific Writing Workshops</div>
+  <div class="ey">European Research Universities &middot; Scientific Writing &amp; Productivity</div>
   <h1 class="h1">Find the right <strong>decision-maker</strong><br>at any European university</h1>
-  <p class="sub" id="heroSub">Loading data…</p>
-  <div class="search-wrap">
-    <div class="search-row">
-      <input class="search-input" id="q" type="text" placeholder="Search university, name, unit, email, country…" oninput="doSearch()">
-      <button class="search-btn" onclick="doSearch()"><i class="ti ti-search"></i> Search</button>
-    </div>
-  </div>
+  <p class="sub" id="heroSub">Loading&hellip;</p>
+  <div class="sw"><div class="sr">
+    <input class="si" id="q" type="text" placeholder="Search university, name, unit, email&hellip;" oninput="doSearch()">
+    <button class="sb2" onclick="doSearch()">Search</button>
+  </div></div>
 </section>
 
-<div class="filters">
-  <span class="flabel">Country</span>
-  <div id="countryChips"><div class="chip con on" onclick="setCountry('ALL',this)">All countries</div></div>
-  <div class="dvdr"></div>
-  <span class="flabel">Unit type</span>
-  <div id="unitChips"><div class="chip uon on" onclick="setUnit('ALL',this)">All units</div></div>
+<div class="fbar">
+  <span class="fl">Country</span>
+  <div class="csw" id="csW">
+    <div class="csb" id="csb" onclick="toggleDrop()">
+      <span><span id="csF">&#127757;</span> <span id="csT">All countries</span></span>
+      <span style="font-size:10px;opacity:.5">&#9660;</span>
+    </div>
+    <div class="csd" id="csd">
+      <input class="cds" id="cds" type="text" placeholder="Search country&hellip;" oninput="filterDrop(this.value)">
+      <div id="cdL"></div>
+    </div>
+  </div>
+  <div class="dv"></div>
+  <span class="fl">Unit</span>
+  <div class="uch" id="uch"><div class="chip on" onclick="setUnit('ALL',this)">All</div></div>
 </div>
 
-<div class="agent">
-  <div class="dot"></div>
-  <div class="agent-txt"><strong>AI Agent active</strong> — contacts verified against live university pages. Click <b>Verify</b> on any card to trigger a real-time data check.</div>
-  <div class="vbadge" id="vbadge">Loading…</div>
+<div class="sbar">
+  <div class="sbl"><div class="sdot"></div><span id="sbarT">Database updates automatically every week</span></div>
+  <span id="sbarR"></span>
 </div>
 
 <div class="stats">
-  <div class="sc"><div class="sn t" id="stT">—</div><div class="sl">Institutions</div></div>
-  <div class="sc"><div class="sn g" id="stE">—</div><div class="sl">Emails found</div></div>
-  <div class="sc"><div class="sn r" id="stA">—</div><div class="sl">Priority A</div></div>
-  <div class="sc"><div class="sn s" id="stC">—</div><div class="sl">Countries</div></div>
+  <div class="sc"><div class="sn t" id="stT">&#8212;</div><div class="snl">Institutions</div></div>
+  <div class="sc"><div class="sn g" id="stE">&#8212;</div><div class="snl">Emails</div></div>
+  <div class="sc"><div class="sn r" id="stN">&#8212;</div><div class="snl">Named contacts</div></div>
+  <div class="sc"><div class="sn s" id="stC">&#8212;</div><div class="snl">Countries</div></div>
+  <div class="sc"><div class="sn" style="color:#0a66c2" id="stL">&#8212;</div><div class="snl">LinkedIn</div></div>
 </div>
 
-<div class="res-area">
-  <div class="res-meta">
-    <div class="res-count" id="rcount">Loading…</div>
-    <div class="sort-row">
-      <button class="prio-toggle" id="prioBtn" onclick="togglePrioOnly()">⭐ Priority A only</button>
-      <select class="sort-sel" onchange="doSort(this.value)">
-        <option value="prio">Priority first</option>
-        <option value="alpha">A to Z</option>
-        <option value="email">Has email first</option>
-        <option value="country">By country</option>
-      </select>
-    </div>
+<div class="ra">
+  <div class="rm">
+    <div class="rcc" id="rcc">Loading&hellip;</div>
+    <select class="sss" onchange="doSort(this.value)" id="sss">
+      <option value="named">Named contacts first</option>
+      <option value="alpha">A to Z</option>
+      <option value="email">Has email first</option>
+      <option value="country">By country</option>
+      <option value="newest">Newest first</option>
+    </select>
   </div>
-  <div id="results"><div class="loading"><div class="loading-spin"></div><div>Loading prospect data…</div></div></div>
+  <div id="results"><div class="skel-card"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><div><div class="skel" style="width:180px;height:16px;margin-bottom:6px"></div><div class="skel" style="width:120px;height:11px"></div></div><div class="skel" style="width:36px;height:20px;border-radius:10px"></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div><div class="skel" style="width:140px;height:13px;margin-bottom:5px"></div><div class="skel" style="width:100px;height:10px"></div></div></div><div class="skel" style="width:180px;height:11px;margin-left:42px"></div></div>
+<div class="skel-card"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><div><div class="skel" style="width:200px;height:16px;margin-bottom:6px"></div><div class="skel" style="width:120px;height:11px"></div></div><div class="skel" style="width:36px;height:20px;border-radius:10px"></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div><div class="skel" style="width:155px;height:13px;margin-bottom:5px"></div><div class="skel" style="width:100px;height:10px"></div></div></div><div class="skel" style="width:180px;height:11px;margin-left:42px"></div></div>
+<div class="skel-card"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><div><div class="skel" style="width:220px;height:16px;margin-bottom:6px"></div><div class="skel" style="width:120px;height:11px"></div></div><div class="skel" style="width:36px;height:20px;border-radius:10px"></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div><div class="skel" style="width:170px;height:13px;margin-bottom:5px"></div><div class="skel" style="width:100px;height:10px"></div></div></div><div class="skel" style="width:180px;height:11px;margin-left:42px"></div></div>
+<div class="skel-card"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><div><div class="skel" style="width:240px;height:16px;margin-bottom:6px"></div><div class="skel" style="width:120px;height:11px"></div></div><div class="skel" style="width:36px;height:20px;border-radius:10px"></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div><div class="skel" style="width:185px;height:13px;margin-bottom:5px"></div><div class="skel" style="width:100px;height:10px"></div></div></div><div class="skel" style="width:180px;height:11px;margin-left:42px"></div></div>
+<div class="skel-card"><div style="display:flex;justify-content:space-between;margin-bottom:12px"><div><div class="skel" style="width:260px;height:16px;margin-bottom:6px"></div><div class="skel" style="width:120px;height:11px"></div></div><div class="skel" style="width:36px;height:20px;border-radius:10px"></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div><div class="skel" style="width:200px;height:13px;margin-bottom:5px"></div><div class="skel" style="width:100px;height:10px"></div></div></div><div class="skel" style="width:180px;height:11px;margin-left:42px"></div></div>
+</div>
 </div>
 
 <footer>
-  <div class="foot-inner">
+  <div class="fi">
     <div>
-      <div class="foot-logo">A Brilliant Mind</div>
-      <div class="foot-sub">Writing &amp; Productivity Boost for Scientists</div>
-      <div style="margin-top:12px;font-size:11px;color:rgba(255,255,255,.4)">Data: <a href="prospects.csv" style="color:var(--teal)">prospects.csv</a> (edit to update)</div>
+      <div class="flo">A Brilliant Mind</div>
+      <div class="fsu">Writing &amp; Productivity Boost for Scientists</div>
     </div>
-    <div class="foot-note">
-      Data collected July 2026 from public university pages. Always verify contacts before outreach.
-      Legal note: cold B2B email without consent is restricted in DE/AT (UWG §7) — use LinkedIn or phone first, or write to institutional office addresses with a concrete offer.
+    <div class="fno">
+      Contact data from public university pages, updated automatically.
+      Always verify before outreach. Cold B2B email without consent is restricted in DE/AT (UWG &sect;7).
       <br><br>
-      <a href="https://abrilliantmind.blog/" target="_blank">abrilliantmind.blog</a> &nbsp;·&nbsp;
-      Scientific writing courses, workshops &amp; writing retreats for PhD students &amp; postdocs.
+      <a href="https://abrilliantmind.blog/" target="_blank">abrilliantmind.blog</a>
     </div>
   </div>
 </footer>
 
+<!-- NOTE / EDIT MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">&#10005;</button>
+    <div class="modal-title" id="mTitle"></div>
+    <div class="modal-sub" id="mSub"></div>
+
+    <div id="mNoteWrap">
+      <label class="mlabel">Your note</label>
+      <textarea class="mf" id="mNote" placeholder="e.g. Called 15 Jul, very interested. Follow up in September about writing retreats."></textarea>
+    </div>
+
+    <div id="mEditWrap" style="display:none">
+      <label class="mlabel">Contact name</label>
+      <input class="mf" id="eName" type="text" placeholder="e.g. Dr. Anna Schmidt">
+      <label class="mlabel">Role / title</label>
+      <input class="mf" id="eRole" type="text" placeholder="e.g. Head of Graduate Academy">
+      <label class="mlabel">Email</label>
+      <input class="mf" id="eEmail" type="email" placeholder="e.g. anna.schmidt@uni.de">
+      <label class="mlabel">Team page URL</label>
+      <input class="mf" id="eUrl" type="url" placeholder="https://...">
+      <label class="mlabel">LinkedIn URL</label>
+      <input class="mf" id="eLi" type="url" placeholder="https://linkedin.com/in/...">
+      <div class="mhint">&#8505;&#65039; Changes saved in your browser. To update the shared database, also edit <code>prospects.csv</code> on GitHub.</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="mbtn danger" id="mDeleteBtn" onclick="deleteModal()" style="display:none;margin-right:auto">Delete</button>
+      <button class="mbtn cancel" onclick="closeModal()">Cancel</button>
+      <button class="mbtn save" onclick="saveModal()">Save</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-const GITHUB_USER   = 'mina-70';
-const GITHUB_REPO   = 'abm-prospects';
-const GITHUB_BRANCH = 'main';
-const CSV_FILE      = 'prospects.csv';
+/* PROSPECT_DATA_START */
+window.PROSPECT_DATA = [{"university": "University of Vienna", "country": "Austria", "country_code": "AT", "unit_type": "Doctoral School", "unit_name": "Center for Doctoral Studies (DLE)", "contact_name": "Dr. Lucas Zinner", "role": "Head of Unit", "email": "lucas.zinner@univie.ac.at", "url": "https://doktorat.univie.ac.at/beratung/kontaktpersonen/", "priority": "A", "status": "Verified Jul 2026", "notes": "Central contact for doctoral education; heads research services and early career support"}, {"university": "University of Vienna", "country": "Austria", "country_code": "AT", "unit_type": "Doctoral School", "unit_name": "Doktoratsservice und Nachwuchsförderung", "contact_name": "Dr. Bianca Lindorfer", "role": "Doctoral Service & Early Career Support", "email": "bianca.lindorfer@univie.ac.at", "url": "https://doktorat.univie.ac.at/beratung/kontaktpersonen/", "priority": "A", "status": "Verified Jul 2026", "notes": "Operational contact for doctoral training offers"}, {"university": "University of Vienna", "country": "Austria", "country_code": "AT", "unit_type": "Postdoc Support", "unit_name": "Nachwuchsförderung PostDoc", "contact_name": "Monica Garcia Puerto MA", "role": "Postdoc support & proposal support", "email": "monica.garcia.puerto@univie.ac.at", "url": "https://doktorat.univie.ac.at/beratung/kontaktpersonen/", "priority": "B", "status": "Verified Jul 2026", "notes": "Postdoc-specific offers including proposal support"}, {"university": "University of Graz", "country": "Austria", "country_code": "AT", "unit_type": "Doctoral School", "unit_name": "Doctoral Academy Graz", "contact_name": "Dr. Gerald Lind", "role": "Early-stage researcher development", "email": "doktorat@uni-graz.at", "url": "https://doctoral-academy.uni-graz.at/en/the-doctoral-academy/team/", "priority": "A", "status": "Verified Jul 2026", "notes": "LOCAL to Graz — ideal first in-person meeting. Also: Dr. Corinne Von der Hellen; Stefanie Lerch-Pesendorfer"}, {"university": "University of Innsbruck", "country": "Austria", "country_code": "AT", "unit_type": "Staff Development", "unit_name": "Personalentwicklung", "contact_name": "Mag. Isabella Göschl", "role": "Head of Personnel Development", "email": "isabella.goeschl@uibk.ac.at", "url": "https://www.uibk.ac.at/de/personalentwicklung/kontakt/", "priority": "A", "status": "Verified Jul 2026", "notes": "Team email: personalentwicklung@uibk.ac.at"}, {"university": "TU Graz", "country": "Austria", "country_code": "AT", "unit_type": "Doctoral School", "unit_name": "14 Doctoral Schools", "contact_name": "", "role": "Heads per school listed on each school page", "email": "info@tugraz.at", "url": "https://www.tugraz.at/en/studying-and-teaching/degree-and-certificate-programmes/doctoral-programmes/overview-doctoral-programmes", "priority": "B", "status": "Unit verified", "notes": "Decentralized: each Doctoral School page lists head + email. e.g. cboano@tugraz.at (ICE school)"}, {"university": "Med Uni Graz", "country": "Austria", "country_code": "AT", "unit_type": "Doctoral School", "unit_name": "Doctoral School / PhD Program office", "contact_name": "", "role": "", "email": "", "url": " https://www.medunigraz.at/en/phd-doctoral-studies", "priority": "B", "status": "To research", "notes": "Medical PhDs face high publication pressure — good fit for scientific writing"}, {"university": "WU Wien", "country": "Austria", "country_code": "AT", "unit_type": "Staff Development", "unit_name": "Organizational & Talent Development", "contact_name": "", "role": "", "email": "", "url": " https://www.wu.ac.at/en/the-university/organizational-structure/service-units/organizational-talent-development/staff", "priority": "B", "status": "Unit verified", "notes": "Semester course catalog for academic staff — bookable workshops revised each semester"}, {"university": "TU Wien", "country": "Austria", "country_code": "AT", "unit_type": "Staff Development", "unit_name": "Personalentwicklung TU Wien", "contact_name": "", "role": "", "email": "", "url": " https://www.tuwien.at/en/tu-wien/organisation/central-divisions/human-resources", "priority": "B", "status": "Unit verified", "notes": "PE explicitly contracts external coaches/trainers for academic staff"}, {"university": "Universität Salzburg (PLUS)", "country": "Austria", "country_code": "AT", "unit_type": "Doctoral School", "unit_name": "Doctorate Schools", "contact_name": "", "role": "", "email": "", "url": " https://www.plus.ac.at/", "priority": "C", "status": "To research", "notes": ""}, {"university": "BOKU Wien", "country": "Austria", "country_code": "AT", "unit_type": "Doctoral School", "unit_name": "Doctoral Schools service", "contact_name": "", "role": "", "email": "", "url": " https://boku.ac.at/en/forschung/doktoratsschulen", "priority": "C", "status": "To research", "notes": ""}, {"university": "TU München (TUM)", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "TUM Graduate School – Management Office", "contact_name": "Dr. Katrin Offe", "role": "Managing Director", "email": "katrin.offe@tum.de", "url": "https://www.gs.tum.de/en/gs/tum-graduate-school/management-office/", "priority": "A", "status": "Verified Jul 2026", "notes": "~8000 doctoral candidates"}, {"university": "TU München (TUM)", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "TUM-GS Qualification Program", "contact_name": "Dr. Vera Kaulbarsch", "role": "Team Lead Qualification Program", "email": "vera.kaulbarsch@tum.de", "url": "https://www.gs.tum.de/en/gs/tum-graduate-school/management-office/", "priority": "A", "status": "Verified Jul 2026", "notes": "THE workshop-booking persona at TUM — books external trainers"}, {"university": "Universität Hamburg", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Hamburg Research Academy (HRA)", "contact_name": "Dr. Elena Nendza", "role": "Managing Director", "email": "elena.nendza@hra-hamburg.de", "url": "https://www.hra-hamburg.de/ueber-uns/team.html", "priority": "A", "status": "Verified Jul 2026", "notes": "Serves 9 Hamburg universities — highest leverage single contact"}, {"university": "Universität Hamburg", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "HRA Qualification Program", "contact_name": "Yvonne Kaden", "role": "Coordinator Qualification Program", "email": "yvonne.kaden@hra-hamburg.de", "url": "https://www.hra-hamburg.de/ueber-uns/personen.html", "priority": "A", "status": "Verified Jul 2026", "notes": "Books and organizes the HRA workshop programme"}, {"university": "Goethe-Universität Frankfurt", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "GRADE – Goethe Research Academy", "contact_name": "Dr. Sybille Küster", "role": "Managing Director", "email": "kuester@grade.uni-frankfurt.de", "url": "https://www.grade.uni-frankfurt.de/53525011/100_grade_team", "priority": "A", "status": "Verified Jul 2026", "notes": "Also serves Rhine-Main alliance (Mainz Darmstadt). Deputies: Dr. Matthias Köhler; Dr. Laura Mohr-Valldorf"}, {"university": "University of Tübingen", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenakademie", "contact_name": "Dr. Britta Hoyer", "role": "Head of Graduate Academy", "email": "britta.hoyer@uni-tuebingen.de", "url": "https://uni-tuebingen.de/forschung/nachwuchsfoerderung/graduiertenakademie/ueber-uns/team/", "priority": "A", "status": "Verified Jul 2026", "notes": "Runs DRDP & RDP workshop programs. Deputy: Dr. Martina Bross m.bross@uni-tuebingen.de"}, {"university": "University of Tübingen", "country": "Germany", "country_code": "DE", "unit_type": "Postdoc Support", "unit_name": "Graduiertenakademie – postdoc", "contact_name": "Marisa Köllner", "role": "Contact for postdocs & group leaders", "email": "marisa.koellner@uni-tuebingen.de", "url": "https://uni-tuebingen.de/forschung/nachwuchsfoerderung/graduiertenakademie/ueber-uns/team/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Leibniz Universität Hannover", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenakademie", "contact_name": "Dr. Meike Huntebrinker", "role": "Operational lead", "email": "meike.huntebrinker@zuv.uni-hannover.de", "url": "https://www.graduiertenakademie.uni-hannover.de/ueber-uns/team", "priority": "A", "status": "Verified Jul 2026", "notes": "Director (approval level): Prof. Dr. Joachim Escher escher@ifam.uni-hannover.de"}, {"university": "TU Dresden", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenakademie", "contact_name": "Dr. Barbara Könczöl", "role": "Head of Office (Sachgebietsleiterin)", "email": "barbara.koenczoel@tu-dresden.de", "url": "https://tu-dresden.de/ga/die-einrichtung/team", "priority": "A", "status": "Verified Jul 2026", "notes": "Qualification officer: Jenny Neukirch. Writing advisor: Dr. Katharina Ulbrich (partner/referrer)"}, {"university": "TU Dresden", "country": "Germany", "country_code": "DE", "unit_type": "Postdoc Support", "unit_name": "Postdoc Center", "contact_name": "Angela Böhm MA", "role": "Deputy head; Karriereentwicklung", "email": "angela.boehm@tu-dresden.de", "url": "https://tu-dresden.de/ga/die-einrichtung/team", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "FU Berlin", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Dahlem Research School", "contact_name": "Dr. Markus Edler", "role": "Managing Director", "email": "m.edler@fu-berlin.de", "url": "https://www.fu-berlin.de/sites/drs/about-us/team/index.html", "priority": "A", "status": "Verified Jul 2026", "notes": "Professional Development Program admin: drs@fu-berlin.de"}, {"university": "Heidelberg University", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenakademie – Geschäftsstelle", "contact_name": "Cosima-Valerie Steck", "role": "Strategy & organizational development", "email": "cosima.steck@uni-heidelberg.de", "url": "https://www.uni-heidelberg.de/einrichtungen/gradakad/akademie/team.html", "priority": "A", "status": "Verified Jul 2026", "notes": "Office: graduiertenakademie@uni-heidelberg.de; colleague Elif Avcu-Frank elif.avcu@uni-heidelberg.de"}, {"university": "University of Greifswald", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenakademie (Rektorat)", "contact_name": "Dr. Michael G. Schöner", "role": "Graduate Academy", "email": "graduiertenakademie@uni-greifswald.de", "url": "https://www.uni-greifswald.de/forschung/wissenschaftlicher-nachwuchs/graduiertenakademie/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "LMU München", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "GraduateCenter LMU", "contact_name": "Head post in transition", "role": "New appointment autumn 2026", "email": "graduatecenter@lmu.de", "url": "https://www.graduatecenter.uni-muenchen.de/kontakt/index.html", "priority": "B", "status": "Verified Jul 2026", "notes": "New leader = perfect timing for fresh outreach in autumn 2026"}, {"university": "Ruhr-Universität Bochum", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "RUB Research School", "contact_name": "Dr. Christiane Wüllner", "role": "Managing Director", "email": "christiane.wuellner@rub.de", "url": "https://www.research-school.rub.de/", "priority": "A", "status": "Verified Jul 2026", "notes": "12-person office serving 4000+ early career researchers"}, {"university": "Universität Potsdam", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Potsdam Graduate School (PoGS)", "contact_name": "Dr. Johannes Freudenreich", "role": "Managing Director", "email": "johannes.freudenreich@uni-potsdam.de", "url": "https://www.uni-potsdam.de/de/pogs/ueber-uns/unser-team", "priority": "A", "status": "Verified Jul 2026", "notes": "Training lead: Claudia Wendt claudia.wendt.ii@uni-potsdam.de"}, {"university": "Universität Marburg (MARA)", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Marburg University Research Academy", "contact_name": "Dr. Ines Braune", "role": "Managing Director", "email": "ines.braune@uni-marburg.de", "url": "https://www.uni-marburg.de/en/mara/institution/team/team", "priority": "A", "status": "Verified Jul 2026", "notes": "Large fee-based workshop programme for PhDs & postdocs"}, {"university": "Universität Bremen", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "BYRD – Bremen Early Career Researcher Dev.", "contact_name": "Maren Droste", "role": "Office management", "email": "byrd@vw.uni-bremen.de", "url": "https://www.uni-bremen.de/en/bremen-early-career-researcher-development/team", "priority": "A", "status": "Verified Jul 2026", "notes": "Workshop programme explicitly covers scientific writing & publishing"}, {"university": "Universität Konstanz", "country": "Germany", "country_code": "DE", "unit_type": "Staff Development", "unit_name": "Academic Staff Development (ASD)", "contact_name": "Maren Rühmann", "role": "Head of Academic Staff Development", "email": "asd@uni-konstanz.de", "url": "https://www.uni-konstanz.de/asd/team/", "priority": "A", "status": "Verified Jul 2026", "notes": "EURAXESS-awarded unit. Initiator of national UniNetzPE network. +49 7531 88-2777"}, {"university": "Universität Konstanz", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Konstanz Research School", "contact_name": "Silke Hell", "role": "Managing Director Konstanz Research School", "email": "asd@uni-konstanz.de", "url": "https://www.uni-konstanz.de/asd/team/", "priority": "A", "status": "Verified Jul 2026", "notes": "Doctoral-specific buyer within ASD. Also: Dr. Julia Breitbach (event programme design)"}, {"university": "Universität Freiburg", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduate Centre (GraCe)", "contact_name": "", "role": "", "email": "", "url": "https://www.frs.uni-freiburg.de/de/iga/index", "priority": "B", "status": "Unit verified", "notes": "IGA reorganized into GraCe under Freiburg Research Services"}, {"university": "KIT Karlsruhe", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Karlsruhe House of Young Scientists (KHYS)", "contact_name": "", "role": "", "email": "info@khys.kit.edu", "url": "https://www.khys.kit.edu/ansprechpartner_5795.php", "priority": "B", "status": "Unit verified", "notes": "+49 721 608-46185"}, {"university": "TU Clausthal", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenakademie", "contact_name": "Jacqueline Lessig-Owlanj", "role": "Managing Director", "email": "jacqueline.lessig-owlanj@tu-clausthal.de", "url": "https://www.graduiertenakademie.tu-clausthal.de/ueber-uns/team-graduiertenakademie", "priority": "B", "status": "Verified Jul 2026", "notes": "Also: Caroline Maas (Tenure Track/PostDocs)"}, {"university": "University of Hohenheim", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenakademie", "contact_name": "", "role": "", "email": "", "url": "https://www.uni-hohenheim.de/graduiertenakademie", "priority": "B", "status": "To research", "notes": ""}, {"university": "Universität Stuttgart", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "GRADUS – Graduate Academy", "contact_name": "", "role": "", "email": "", "url": "https://www.uni-stuttgart.de/en/research/gradus/", "priority": "B", "status": "To research", "notes": ""}, {"university": "Universität Leipzig", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Research Academy Leipzig", "contact_name": "", "role": "", "email": "", "url": "https://www.uni-leipzig.de/forschung/research-academy-leipzig", "priority": "B", "status": "To research", "notes": ""}, {"university": "FAU Erlangen-Nürnberg", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduiertenzentrum FAU", "contact_name": "", "role": "", "email": "", "url": "https://www.fau.de/", "priority": "B", "status": "To research", "notes": ""}, {"university": "Universität Würzburg", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "University of Würzburg Graduate Schools", "contact_name": "", "role": "", "email": "", "url": "https://www.graduateschools.uni-wuerzburg.de/", "priority": "B", "status": "To research", "notes": ""}, {"university": "Universität zu Köln", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Albertus Magnus Graduate Center", "contact_name": "", "role": "", "email": "", "url": "https://amgc.uni-koeln.de/", "priority": "C", "status": "To research", "notes": ""}, {"university": "Universität Bonn", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Bonn Graduate Center", "contact_name": "", "role": "", "email": "", "url": "https://www.uni-bonn.de/en/research-and-teaching/support-for-early-career-researchers", "priority": "C", "status": "To research", "notes": ""}, {"university": "Universität Münster", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Graduate Centre", "contact_name": "", "role": "", "email": "", "url": "https://www.uni-muenster.de/GraduateCentre/", "priority": "C", "status": "To research", "notes": ""}, {"university": "HU Berlin", "country": "Germany", "country_code": "DE", "unit_type": "Doctoral School", "unit_name": "Humboldt Graduate School", "contact_name": "", "role": "", "email": "", "url": "https://www.hu-berlin.de/en/research/support-for-early-career-researchers", "priority": "B", "status": "To research", "notes": ""}, {"university": "RWTH Aachen", "country": "Germany", "country_code": "DE", "unit_type": "Postdoc Support", "unit_name": "Center for Young Academics", "contact_name": "", "role": "", "email": "", "url": "https://www.rwth-aachen.de/cms/root/forschung/wissenschaftlicher-nachwuchs/~fca/center-for-young-academics/", "priority": "B", "status": "To research", "notes": ""}, {"university": "University of Zurich (UZH)", "country": "Switzerland", "country_code": "CH", "unit_type": "Doctoral School", "unit_name": "Graduate Campus (GRC)", "contact_name": "Dr. Claudine Leysinger", "role": "Head (Abteilungsleiterin)", "email": "info@grc.uzh.ch", "url": "https://www.grc.uzh.ch/de/grc/team.html", "priority": "A", "status": "Verified Jul 2026", "notes": "Deputy: Dr. Maja Fischer. Runs transferable-skills course programme"}, {"university": "University of Basel", "country": "Switzerland", "country_code": "CH", "unit_type": "Doctoral School", "unit_name": "GRACE – Graduate Center", "contact_name": "Dr. Ilja Johannes Karenovics", "role": "Head Academic Programs (incl. GRACE)", "email": "grace@unibas.ch", "url": "https://www.unibas.ch/en/University/Administration-Services/Vice-President-s-Office-for-Education/Academic-Programs/Graduate-Center/Team.html", "priority": "A", "status": "Verified Jul 2026", "notes": "GRACE funds external skills courses (CHF 3600/course). Andrea Wüst = Deputy Head Transferable Skills"}, {"university": "University of Bern", "country": "Switzerland", "country_code": "CH", "unit_type": "Postdoc Support", "unit_name": "Abteilung Akademische Karrieren", "contact_name": "", "role": "", "email": "", "url": " https://www.unibe.ch/universitaet/organisation/leitung_und_zentralbereich/vizerektorat_internationales_und_akademische_karrieren/abteilung_akademische_karrieren/index_ger.html", "priority": "A", "status": "Verified Jul 2026", "notes": "TS programme explicitly includes scientific writing — direct fit"}, {"university": "EPFL Lausanne", "country": "Switzerland", "country_code": "CH", "unit_type": "Doctoral School", "unit_name": "Doctoral School (EDOC)", "contact_name": "EDOC office", "role": "Runs Transversal Skills incl. Academic Writing 1 & 2", "email": "gestion.edoc@epfl.ch", "url": "https://edu.epfl.ch/studyplan/en/doctoral_school/transversal-skills-courses/", "priority": "A", "status": "Verified Jul 2026", "notes": "Already runs academic writing courses. +41 21 693 71 85. Multiple budgets available"}, {"university": "ETH Zürich", "country": "Switzerland", "country_code": "CH", "unit_type": "Doctoral School", "unit_name": "Doctoral Administration (per-department)", "contact_name": "", "role": "", "email": "", "url": "https://ethz.ch/en/the-eth-zurich/organisation/departments/academic-services/doctoral-administration.html", "priority": "B", "status": "Unit verified", "notes": "No central school — sell per department. External courses creditable if quality standards met"}, {"university": "Universität St. Gallen (HSG)", "country": "Switzerland", "country_code": "CH", "unit_type": "Doctoral School", "unit_name": "Doctoral Office", "contact_name": "", "role": "", "email": "", "url": "https://www.unisg.ch/", "priority": "C", "status": "To research", "notes": ""}, {"university": "University College London", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Doctoral and Early Career Researcher School", "contact_name": "Prof. Geraint Thomas", "role": "Pro-Vice-Provost (Doctoral School & ECR)", "email": "", "url": "https://www.ucl.ac.uk/research/people-teams/research-support-teams", "priority": "A", "status": "Verified Jul 2026", "notes": "In post since 2025; covers PhDs AND early career researchers — both your audiences"}, {"university": "University of Edinburgh", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Institute for Academic Development (IAD)", "contact_name": "Fiona Philippi", "role": "Head of Researcher Development / Asst Director", "email": "Fiona.Philippi@ed.ac.uk", "url": "https://institute-academic-development.ed.ac.uk/postgraduate/doctoral/advice-support/contact", "priority": "A", "status": "Verified Jul 2026", "notes": "IAD restructuring 2026-27 = new teams reviewing providers = ideal timing. Doctoral Programme Manager: Louise McKay Louise.McKay@ed.ac.uk"}, {"university": "University of Nottingham", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Researcher Academy", "contact_name": "Prof. Jeanette Woolard", "role": "Associate Pro-Vice-Chancellor Researcher Academy", "email": "", "url": "https://www.nottingham.ac.uk/researcher-academy/", "priority": "A", "status": "Verified Jul 2026", "notes": "Training Manager for writing: Victoria Sedman — exact buyer for scientific writing workshops"}, {"university": "University of Bristol", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Bristol Doctoral College", "contact_name": "Lucy Parnall", "role": "Head of Bristol Doctoral College", "email": "doctoral-college@bristol.ac.uk", "url": "https://www.bristol.ac.uk/doctoral-college/about-us/meet-the-team/", "priority": "A", "status": "Verified Jul 2026", "notes": "South West alliance with Cardiff Bath Exeter = consortium opportunity"}, {"university": "University of Warwick", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Warwick Doctoral College", "contact_name": "Dr Michele Underwood", "role": "Researcher Development Manager", "email": "dc-pgr@warwick.ac.uk", "url": "https://warwick.ac.uk/services/dc/about/meettheteam/", "priority": "A", "status": "Verified Jul 2026", "notes": "Deputy Head: Dr Rebecca Vipond. Runs small bespoke workshops year-round"}, {"university": "University of Leeds", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Leeds Doctoral College", "contact_name": "Paula North", "role": "Head of Doctoral College Operations", "email": "pgrdev@leeds.ac.uk", "url": "https://ses.leeds.ac.uk/contacts/", "priority": "A", "status": "Verified Jul 2026", "notes": "Also: Christina Robinson c.robinson@adm.leeds.ac.uk. Training inbox: pgrdev@leeds.ac.uk (OD&PL team)"}, {"university": "Cardiff University", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Doctoral Academy", "contact_name": "Sophia Wigley", "role": "Learning & Development Officer", "email": "Doctoral-Academy@cardiff.ac.uk", "url": "https://blogs.cardiff.ac.uk/doctoral-academy-blog/meet-our-team/", "priority": "A", "status": "Verified Jul 2026", "notes": "New courses considered every APRIL — pitch by March. SW alliance with Bristol Bath Exeter"}, {"university": "University of Glasgow", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Research Culture & Researcher Development", "contact_name": "Dr Joanna Royle", "role": "Head of Researcher Development Team", "email": "researcher-development@glasgow.ac.uk", "url": "https://www.gla.ac.uk/myglasgow/ris/researcherdevelopment/aboutus/whatisrd", "priority": "A", "status": "Verified Jul 2026", "notes": "Portfolio led by Kay Guccione. Runs writing festivals + workshops for PGRs & research staff"}, {"university": "University of Birmingham", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "University Doctoral School", "contact_name": "Tara Wittin", "role": "Head of University Doctoral School", "email": "", "url": "https://www.birmingham.ac.uk/study/postgraduate/support/graduate-school", "priority": "A", "status": "Verified Jul 2026", "notes": "Medical postdoc training: mds.research.training@contacts.bham.ac.uk +44 121 414 2967"}, {"university": "University of Manchester", "country": "United Kingdom", "country_code": "UK", "unit_type": "Staff Development", "unit_name": "Researcher Training & Development (HR)", "contact_name": "", "role": "", "email": "", "url": "https://www.staffnet.manchester.ac.uk/rbe/rdrd/", "priority": "A", "status": "Verified Jul 2026", "notes": "Email: researcherdevelopment@manchester.ac.uk. Covers postdocs & early career"}, {"university": "Imperial College London", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Imperial Graduate School", "contact_name": "", "role": "", "email": "", "url": "https://www.imperial.ac.uk/students/academic-support/graduate-school/about-us/meet-the-team/", "priority": "A", "status": "Unit verified", "notes": "One of UK's largest professional-skills programmes for PhDs; books external trainers"}, {"university": "University of Cambridge", "country": "United Kingdom", "country_code": "UK", "unit_type": "Postdoc Support", "unit_name": "Postdoc Academy", "contact_name": "Steve (Director – see team page)", "role": "Head of Postdoc Academy", "email": "contact.pda@admin.cam.ac.uk", "url": "https://www.postdocacademy.cam.ac.uk/aboutus/meet-the-team-1/staff-bios", "priority": "A", "status": "Verified Jul 2026", "notes": "Training bookings: events.pda@admin.cam.ac.uk. Nicole (Prof Dev Manager) works closely with external training providers"}, {"university": "University of Oxford", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Divisional Graduate Schools (MPLS etc)", "contact_name": "", "role": "", "email": "", "url": "https://www.ox.ac.uk/research/support-researchers", "priority": "B", "status": "Unit verified", "notes": "Decentralized — target divisional researcher-training leads"}, {"university": "LSE", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "PhD Academy", "contact_name": "", "role": "", "email": "PhD.Academy@lse.ac.uk", "url": "https://www.lse.ac.uk/PhD-Academy", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "King's College London", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Centre for Doctoral Studies", "contact_name": "", "role": "", "email": "doctoral-studies@kcl.ac.uk", "url": "https://www.kcl.ac.uk/research/doctoral-studies", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Sheffield", "country": "United Kingdom", "country_code": "UK", "unit_type": "Staff Development", "unit_name": "Research Culture Team", "contact_name": "", "role": "", "email": "research-culture@sheffield.ac.uk", "url": "https://www.sheffield.ac.uk/research/research-culture", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Southampton", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Doctoral College", "contact_name": "", "role": "", "email": "doctoralcollege@soton.ac.uk", "url": "https://www.southampton.ac.uk/doctoral-college", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of York", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "York Graduate Research School", "contact_name": "", "role": "", "email": "grad-school@york.ac.uk", "url": "https://www.york.ac.uk/research/graduate-school/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Newcastle University", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Research Culture & Researcher Development", "contact_name": "", "role": "", "email": "rdteam@ncl.ac.uk", "url": "https://www.ncl.ac.uk/research/researcher-development/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Liverpool", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Doctoral Academy", "contact_name": "", "role": "", "email": "doctoralacademy@liverpool.ac.uk", "url": "https://www.liverpool.ac.uk/doctoral-academy/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Durham University", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Durham Centre for Academic Development", "contact_name": "", "role": "", "email": "dcad@dur.ac.uk", "url": "https://www.durham.ac.uk/departments/centres/academic-development/", "priority": "C", "status": "Verified Jul 2026", "notes": ""}, {"university": "Queen Mary University of London", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Doctoral College", "contact_name": "", "role": "", "email": "doctoralcollege@qmul.ac.uk", "url": "https://www.qmul.ac.uk/doctoralcollege/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Exeter", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Doctoral College", "contact_name": "", "role": "", "email": "doctoral-college@exeter.ac.uk", "url": "https://www.exeter.ac.uk/study/doctoral-college/", "priority": "B", "status": "Verified Jul 2026", "notes": "Part of SW alliance with Bristol Cardiff Bath"}, {"university": "University of St Andrews", "country": "United Kingdom", "country_code": "UK", "unit_type": "Postdoc Support", "unit_name": "GRADskills / Researcher Development", "contact_name": "", "role": "", "email": "gradskills@st-andrews.ac.uk", "url": "https://www.st-andrews.ac.uk/research/support/research-culture/researcher-development/", "priority": "C", "status": "Verified Jul 2026", "notes": ""}, {"university": "Queen's University Belfast", "country": "United Kingdom", "country_code": "UK", "unit_type": "Doctoral School", "unit_name": "Graduate School + Postdoctoral Dev. Centre", "contact_name": "", "role": "", "email": "academic-affairs@qub.ac.uk", "url": "https://www.qub.ac.uk/Research/Our-people/", "priority": "B", "status": "Verified Jul 2026", "notes": "Two separate buyer units: Graduate School (PGR) + PDC (postdocs)"}, {"university": "Trinity College Dublin", "country": "Ireland", "country_code": "IE", "unit_type": "Doctoral School", "unit_name": "Graduate Studies Office", "contact_name": "Prof. Martine Smith", "role": "Dean of Graduate Studies", "email": "", "url": "https://www.tcd.ie/graduatestudies/", "priority": "A", "status": "Verified Jul 2026", "notes": "Confirmed in post May 2026. Ops: Dr Cormac Doran; Orla Bannon (Careers & Development Director)"}, {"university": "University College Dublin", "country": "Ireland", "country_code": "IE", "unit_type": "Doctoral School", "unit_name": "UCD Graduate Research Academy", "contact_name": "", "role": "", "email": "researchacademy@ucd.ie", "url": "https://www.ucd.ie/graduatestudies/", "priority": "A", "status": "Verified Jul 2026", "notes": "English-language market strong publication culture"}, {"university": "University College Cork", "country": "Ireland", "country_code": "IE", "unit_type": "Doctoral School", "unit_name": "Graduate Studies Office", "contact_name": "", "role": "", "email": "graduate.studies@ucc.ie", "url": "https://www.ucc.ie/en/graduatestudies/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Galway", "country": "Ireland", "country_code": "IE", "unit_type": "Doctoral School", "unit_name": "Graduate Studies", "contact_name": "", "role": "", "email": "graduate.studies@universityofgalway.ie", "url": "https://www.universityofgalway.ie/graduate-studies/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Dublin City University", "country": "Ireland", "country_code": "IE", "unit_type": "Doctoral School", "unit_name": "Graduate Studies Office", "contact_name": "", "role": "", "email": "", "url": "https://www.dcu.ie/graduatestudies", "priority": "C", "status": "To research", "notes": ""}, {"university": "University of Iceland", "country": "Iceland", "country_code": "IS", "unit_type": "Doctoral School", "unit_name": "Centre for Graduate Studies", "contact_name": "", "role": "", "email": "framhaldsnám@hi.is", "url": "https://english.hi.is/university/centre_for_graduate_studies", "priority": "B", "status": "Verified Jul 2026", "notes": "Only major research university in Iceland; strong English-language research culture"}, {"university": "Wageningen University", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "Wageningen Graduate Schools (WGS)", "contact_name": "WGS Course Office", "role": "Central course-buying office for all 6 graduate schools", "email": "wgscourses@wur.nl", "url": "https://wgs.crs.wur.nl/", "priority": "A", "status": "Verified Jul 2026", "notes": "Already RUNS Scientific Writing course — looking for trainers. Six graduate schools"}, {"university": "TU Delft", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "University Graduate School (UGS)", "contact_name": "UGS office", "role": "Runs mandatory 45-credit Doctoral Education programme", "email": "graduateschool@tudelft.nl", "url": "https://www.tudelft.nl/en/research-support/execution/graduate-school", "priority": "A", "status": "Verified Jul 2026", "notes": "Mandatory transferable-skills credits for every PhD = permanent trainer demand. +31 15 278 7334"}, {"university": "Utrecht University", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "Graduate Schools (per faculty) + PhD office", "contact_name": "", "role": "", "email": "", "url": "https://www.uu.nl/en/research/phd-programmes", "priority": "B", "status": "To research", "notes": ""}, {"university": "Leiden University", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "Graduate Schools + HRM Learning & Development", "contact_name": "", "role": "", "email": "", "url": "https://www.universiteitleiden.nl/en/research/phd", "priority": "B", "status": "To research", "notes": ""}, {"university": "University of Groningen", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "Groningen Graduate Schools", "contact_name": "", "role": "", "email": "", "url": "https://www.rug.nl/education/phd-programmes/", "priority": "B", "status": "To research", "notes": ""}, {"university": "University of Amsterdam (UvA)", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "Faculty graduate schools / PhD office", "contact_name": "", "role": "", "email": "", "url": "https://www.uva.nl/en/research/phd/phd.html", "priority": "B", "status": "To research", "notes": ""}, {"university": "Radboud University", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "Radboud graduate schools", "contact_name": "", "role": "", "email": "", "url": "https://www.ru.nl/en/education/phd-candidates", "priority": "C", "status": "To research", "notes": ""}, {"university": "Eindhoven University (TU/e)", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "TU/e PhD program (PROOF)", "contact_name": "", "role": "", "email": "", "url": "https://www.tue.nl/en/research/doctoral-education", "priority": "C", "status": "To research", "notes": ""}, {"university": "University of Twente", "country": "Netherlands", "country_code": "NL", "unit_type": "Doctoral School", "unit_name": "Twente Graduate School", "contact_name": "", "role": "", "email": "", "url": "https://www.utwente.nl/en/education/tgs/", "priority": "C", "status": "To research", "notes": ""}, {"university": "KU Leuven", "country": "Belgium", "country_code": "BE", "unit_type": "Postdoc Support", "unit_name": "YouReCa Career Center (HR Dept)", "contact_name": "", "role": "", "email": "careercenter@kuleuven.be", "url": "https://research.kuleuven.be/en/career/youreca", "priority": "A", "status": "Verified Jul 2026", "notes": "HR Dept is the buyer (not the doctoral schools). YouReCa funds researcher-organized initiatives"}, {"university": "Ghent University", "country": "Belgium", "country_code": "BE", "unit_type": "Doctoral School", "unit_name": "Doctoral Schools (5 schools)", "contact_name": "", "role": "", "email": "", "url": "https://www.ugent.be/doctoralschool/en/doctoraltraining/courses/transferableskills", "priority": "A", "status": "Verified Jul 2026", "notes": "External courses formally RECOGNIZED & credited — get recognized once students choose you every semester"}, {"university": "University of Antwerp", "country": "Belgium", "country_code": "BE", "unit_type": "Doctoral School", "unit_name": "Antwerp Doctoral School", "contact_name": "", "role": "", "email": "", "url": "https://www.uantwerpen.be/en/research/phd/antwerp-doctoral-school/", "priority": "B", "status": "To research", "notes": ""}, {"university": "UCLouvain", "country": "Belgium", "country_code": "BE", "unit_type": "Doctoral School", "unit_name": "Collège doctoral", "contact_name": "", "role": "", "email": "", "url": "https://uclouvain.be/en/research/doctorate", "priority": "C", "status": "To research", "notes": "Francophone — materials may need French"}, {"university": "Karolinska Institutet", "country": "Sweden", "country_code": "SE", "unit_type": "Doctoral School", "unit_name": "21 Thematic Doctoral Programmes", "contact_name": "Per-programme coordinators", "role": "Course organisers — catalogue twice yearly", "email": "", "url": "https://staff.ki.se/doctoral-education/doctoral-programmes", "priority": "A", "status": "Verified Jul 2026", "notes": "Course applications open 15 Apr & 15 Oct — pitch in Feb/Aug for inclusion"}, {"university": "Lund University", "country": "Sweden", "country_code": "SE", "unit_type": "Doctoral School", "unit_name": "Doctoral education / HR Division", "contact_name": "", "role": "", "email": "doctoral.education@lu.se", "url": "https://www.lunduniversity.lu.se/research-innovation/doctoral-studies", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Uppsala University", "country": "Sweden", "country_code": "SE", "unit_type": "Staff Development", "unit_name": "HR Division – Researcher development", "contact_name": "", "role": "", "email": "researcher-development@uadm.uu.se", "url": "https://www.uu.se/en/staff/employment/staff-development/researcher-development", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "KTH Stockholm", "country": "Sweden", "country_code": "SE", "unit_type": "Doctoral School", "unit_name": "KTH doctoral programme office", "contact_name": "", "role": "", "email": "doctoral-programmes@kth.se", "url": "https://www.kth.se/en/studies/phd", "priority": "C", "status": "Verified Jul 2026", "notes": ""}, {"university": "Stockholm University", "country": "Sweden", "country_code": "SE", "unit_type": "Doctoral School", "unit_name": "Doctoral education office", "contact_name": "", "role": "", "email": "", "url": "https://www.su.se/english/education/doctoral-studies", "priority": "C", "status": "To research", "notes": ""}, {"university": "University of Copenhagen", "country": "Denmark", "country_code": "DK", "unit_type": "Doctoral School", "unit_name": "Graduate School of Health & Medical Sciences", "contact_name": "", "role": "", "email": "graduateschool@sund.ku.dk", "url": "https://healthsciences.ku.dk/phd/about-the-graduate-school/graduateprogrammes/", "priority": "A", "status": "Verified Jul 2026", "notes": "External parties can propose PhD courses — formal route in. +45 35 32 65 70. 21 Heads of Graduate Programmes"}, {"university": "Aarhus University", "country": "Denmark", "country_code": "DK", "unit_type": "Doctoral School", "unit_name": "Graduate Schools (GSNS GSTS Arts BSS)", "contact_name": "", "role": "", "email": "phd@au.dk", "url": "https://phd.au.dk/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Technical University of Denmark (DTU)", "country": "Denmark", "country_code": "DK", "unit_type": "Doctoral School", "unit_name": "DTU PhD Office", "contact_name": "", "role": "", "email": "", "url": "https://www.dtu.dk/english/education/phd", "priority": "C", "status": "To research", "notes": ""}, {"university": "University of Oslo", "country": "Norway", "country_code": "NO", "unit_type": "Doctoral School", "unit_name": "PhD programmes / Research Support Office", "contact_name": "", "role": "", "email": "phd@admin.uio.no", "url": "https://www.uio.no/english/research/phd/", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "NTNU Trondheim", "country": "Norway", "country_code": "NO", "unit_type": "Doctoral School", "unit_name": "PhD programme administration", "contact_name": "", "role": "", "email": "phd@ntnu.no", "url": "https://www.ntnu.edu/phd", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Bergen", "country": "Norway", "country_code": "NO", "unit_type": "Postdoc Support", "unit_name": "UiB Ferd Centre for Early Career Researchers", "contact_name": "", "role": "", "email": "uibferd@uib.no", "url": "https://www.uib.no/en/uibferd", "priority": "A", "status": "Verified Jul 2026", "notes": "Dedicated early career centre with development programmes"}, {"university": "University of Helsinki", "country": "Finland", "country_code": "FI", "unit_type": "Doctoral School", "unit_name": "Researcher Training Support", "contact_name": "Doctoral School offices", "role": "10 ECTS transferable-skills mandatory since 2024", "email": "dshealth-office@helsinki.fi", "url": "https://www.helsinki.fi/en/about-us/people/university-services", "priority": "A", "status": "Verified Jul 2026", "notes": "Structural demand: every UH doctoral degree requires 10 ECTS of transferable-skills studies"}, {"university": "Aalto University", "country": "Finland", "country_code": "FI", "unit_type": "Doctoral School", "unit_name": "Aalto Doctoral School", "contact_name": "", "role": "", "email": "doctoral.education@aalto.fi", "url": "https://www.aalto.fi/en/study-at-aalto/doctoral-education", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Turku", "country": "Finland", "country_code": "FI", "unit_type": "Doctoral School", "unit_name": "UTUGS – University of Turku Graduate School", "contact_name": "", "role": "", "email": "utugs@utu.fi", "url": "https://www.utu.fi/en/research/utugs", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "University of Eastern Finland", "country": "Finland", "country_code": "FI", "unit_type": "Doctoral School", "unit_name": "Researcher Training Services (ReTS)", "contact_name": "Merja Lyytikäinen", "role": "University Lecturer – researcher transferable-skills", "email": "", "url": "https://www.uef.fi/en/doctoral-education-at-the-uef", "priority": "B", "status": "Verified Jul 2026", "notes": "Head of Academic Affairs: Kaisa Laitinen. VP lead: Jussi Pihlajamäki"}, {"university": "Université Paris-Saclay", "country": "France", "country_code": "FR", "unit_type": "Doctoral School", "unit_name": "Collège doctoral", "contact_name": "", "role": "", "email": "college-doctoral@universite-paris-saclay.fr", "url": "https://www.universite-paris-saclay.fr/en/doctorate", "priority": "B", "status": "Verified Jul 2026", "notes": "Largest doctoral college in France ~4500 PhDs"}, {"university": "Université PSL (Paris)", "country": "France", "country_code": "FR", "unit_type": "Doctoral School", "unit_name": "PSL Doctoral College", "contact_name": "", "role": "", "email": "college.doctoral@psl.eu", "url": "https://psl.eu/en/education/phd-psl", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Sorbonne Université", "country": "France", "country_code": "FR", "unit_type": "Doctoral School", "unit_name": "Collège doctoral", "contact_name": "", "role": "", "email": "", "url": "https://www.sorbonne-universite.fr/en/research-and-innovation/doctorate", "priority": "C", "status": "To research", "notes": "French-language market"}, {"university": "Université Grenoble Alpes", "country": "France", "country_code": "FR", "unit_type": "Doctoral School", "unit_name": "Collège doctoral", "contact_name": "", "role": "", "email": "", "url": "https://www.univ-grenoble-alpes.fr/education/doctoral-college/", "priority": "C", "status": "To research", "notes": ""}, {"university": "Politecnico di Milano", "country": "Italy", "country_code": "IT", "unit_type": "Doctoral School", "unit_name": "PhD School (Scuola di Dottorato)", "contact_name": "", "role": "", "email": "phd.school@polimi.it", "url": "https://www.dottorato.polimi.it/en", "priority": "B", "status": "Verified Jul 2026", "notes": "Teaches in English; strong international profile"}, {"university": "University of Bologna", "country": "Italy", "country_code": "IT", "unit_type": "Doctoral School", "unit_name": "PhD Programmes Office", "contact_name": "", "role": "", "email": "dottorato@unibo.it", "url": "https://www.unibo.it/en/study/phd", "priority": "B", "status": "Verified Jul 2026", "notes": ""}, {"university": "Sapienza Università di Roma", "country": "Italy", "country_code": "IT", "unit_type": "Doctoral School", "unit_name": "PhD School", "contact_name": "", "role": "", "email": "", "url": "https://www.uniroma1.it/en/pagina/phd-programmes", "priority": "C", "status": "To research", "notes": ""}, {"university": "Universitat Pompeu Fabra", "country": "Spain", "country_code": "ES", "unit_type": "Doctoral School", "unit_name": "Doctoral School", "contact_name": "", "role": "", "email": "doctorat@upf.edu", "url": "https://www.upf.edu/web/doctorats", "priority": "C", "status": "Verified Jul 2026", "notes": "Strong English-language research culture for Spain"}, {"university": "Universidade de Lisboa", "country": "Portugal", "country_code": "PT", "unit_type": "Doctoral School", "unit_name": "Doctoral programmes office", "contact_name": "", "role": "", "email": "", "url": "https://www.ulisboa.pt/en/curso/doutoramento", "priority": "C", "status": "To research", "notes": ""}, {"university": "Charles University Prague", "country": "Czech Republic", "country_code": "CZ", "unit_type": "Doctoral School", "unit_name": "Doctoral study dept", "contact_name": "", "role": "", "email": "phd@cuni.cz", "url": "https://cuni.cz/UKEN-161.html", "priority": "B", "status": "Verified Jul 2026", "notes": "English-language PhD tracks; fast internationalizing"}, {"university": "University of Warsaw", "country": "Poland", "country_code": "PL", "unit_type": "Doctoral School", "unit_name": "Doctoral Schools (4 schools)", "contact_name": "", "role": "", "email": "szkoly.doktorskie@uw.edu.pl", "url": "https://szkolydoktorskie.uw.edu.pl/en/", "priority": "B", "status": "Verified Jul 2026", "notes": "Central structures with budgets since 2019 reform"}, {"university": "Jagiellonian University Kraków", "country": "Poland", "country_code": "PL", "unit_type": "Doctoral School", "unit_name": "Doctoral Schools", "contact_name": "", "role": "", "email": "", "url": "https://en.uj.edu.pl/en_GB/research/doctoral-schools", "priority": "C", "status": "To research", "notes": ""}, {"university": "University of Tartu", "country": "Estonia", "country_code": "EE", "unit_type": "Doctoral School", "unit_name": "Doctoral Studies Centre", "contact_name": "", "role": "", "email": "phd@ut.ee", "url": "https://ut.ee/en/content/doctoral-studies", "priority": "B", "status": "Verified Jul 2026", "notes": "Very English-friendly; Estonia's flagship university"}, {"university": "ELTE Budapest", "country": "Hungary", "country_code": "HU", "unit_type": "Doctoral School", "unit_name": "Doctoral schools office", "contact_name": "", "role": "", "email": "", "url": "https://www.elte.hu/en/doctoral-schools", "priority": "C", "status": "To research", "notes": ""}, {"university": "University of Ljubljana", "country": "Slovenia", "country_code": "SI", "unit_type": "Doctoral School", "unit_name": "Doctoral School", "contact_name": "", "role": "", "email": "", "url": "https://www.uni-lj.si/study/doctoral", "priority": "C", "status": "To research", "notes": ""}, {"university": "Charité – Universitätsmedizin Berlin", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "Promotion und Wissenschaftliches Nachwuchsprogramm", "contact_name": "", "role": "", "email": "", "url": "https://www.charite.de/forschung/promotion/", "priority": "To research", "status": "To research", "notes": "Germany's largest university hospital; intense publication pressure = strong fit for scientific writing"}, {"university": "Medizinische Universität Wien (MedUni Wien)", "country": "Austria", "country_code": "AT", "unit_type": "Medical / Health Sciences", "unit_name": "Doctoral Program Coordination", "contact_name": "", "role": "", "email": "", "url": "https://www.meduniwien.ac.at/web/en/research/phd-programs/", "priority": "To research", "status": "To research", "notes": "Largest medical university in the German-speaking world; 6 doctoral programs"}, {"university": "Medizinische Universität Graz", "country": "Austria", "country_code": "AT", "unit_type": "Medical / Health Sciences", "unit_name": "Doctoral School", "contact_name": "", "role": "", "email": "", "url": "https://www.medunigraz.at/en/phd-doctoral-studies", "priority": "To research", "status": "To research", "notes": "Local to Graz — excellent target for in-person outreach"}, {"university": "Medizinische Universität Innsbruck", "country": "Austria", "country_code": "AT", "unit_type": "Medical / Health Sciences", "unit_name": "PhD Program / Nachwuchsförderung", "contact_name": "", "role": "", "email": "", "url": "https://www.i-med.ac.at/forschung/phd-programme.html", "priority": "To research", "status": "To research", "notes": ""}, {"university": "Ludwig-Maximilians-Universität München (LMU) – Medical Faculty", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "Medical Doctoral Programs / Graduate Center Medicine", "contact_name": "", "role": "", "email": "", "url": "https://www.en.mzl.uni-muenchen.de/", "priority": "To research", "status": "To research", "notes": "Combined with LMU GraduateCenter — separate medical buyer"}, {"university": "Technische Universität München – School of Medicine", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "TUM Medical Graduate Center", "contact_name": "", "role": "", "email": "", "url": "https://www.mri.tum.de/medical-graduate-center", "priority": "To research", "status": "To research", "notes": "Part of TUM Graduate School but distinct medical unit"}, {"university": "Heidelberg University – Medical Faculty", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "Heidelberg Graduate School of Fundamental Physics / HBIGS (life sciences)", "contact_name": "", "role": "", "email": "", "url": "https://www.hbigs.uni-heidelberg.de/", "priority": "To research", "status": "To research", "notes": "HBIGS is one of Germany's largest bioscience doctoral schools"}, {"university": "Universitätsklinikum Hamburg-Eppendorf (UKE)", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "UKE Research School / Nachwuchsförderung", "contact_name": "", "role": "", "email": "", "url": "https://www.uke.de/forschung/uke-research-school/", "priority": "To research", "status": "To research", "notes": "Independent medical faculty doctoral school outside HRA"}, {"university": "RWTH Aachen – Medical Faculty", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "Aachen Institute for Advanced Study in Computational Engineering Science (medical PhD track)", "contact_name": "", "role": "", "email": "", "url": "https://www.medizin.rwth-aachen.de/", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University of Freiburg – Medical Faculty", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "Spemann Graduate School of Biology and Medicine (SGBM)", "contact_name": "", "role": "", "email": "", "url": "https://www.sgbm.uni-freiburg.de/", "priority": "To research", "status": "To research", "notes": "SGBM is a DFG excellence initiative doctoral school — own budget"}, {"university": "University of Bonn – Medical Faculty", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "PhD Programs (BIGS – Bonn International Graduate School)", "contact_name": "", "role": "", "email": "", "url": "https://www.medical-faculty.uni-bonn.de/en/research/phd", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University Hospital Frankfurt (Goethe University)", "country": "Germany", "country_code": "DE", "unit_type": "Medical / Health Sciences", "unit_name": "Medical Doctoral Programs / GRADE-Life", "contact_name": "", "role": "", "email": "", "url": "https://www.grade.uni-frankfurt.de/grade-life", "priority": "To research", "status": "To research", "notes": "GRADE-Life is the life sciences arm of GRADE Frankfurt — same buyer as Küster"}, {"university": "Karolinska Institutet", "country": "Sweden", "country_code": "SE", "unit_type": "Medical / Health Sciences", "unit_name": "Doctoral Education Office (central)", "contact_name": "", "role": "", "email": "dshealth-office@helsinki.fi", "url": "https://staff.ki.se/doctoral-education", "priority": "Verified Jul 2026", "status": "To research", "notes": "Already in list as doctoral school — also target medical-specific coordinator per programme"}, {"university": "University of Copenhagen – SUND (Health)", "country": "Denmark", "country_code": "DK", "unit_type": "Medical / Health Sciences", "unit_name": "Graduate School of Health and Medical Sciences", "contact_name": "", "role": "", "email": "graduateschool@sund.ku.dk", "url": "https://healthsciences.ku.dk/phd/", "priority": "Verified Jul 2026", "status": "To research", "notes": "21 graduate programmes; external course proposals welcomed — route directly in"}, {"university": "KU Leuven – Faculty of Medicine", "country": "Belgium", "country_code": "BE", "unit_type": "Medical / Health Sciences", "unit_name": "PhD in Biomedical Sciences coordination", "contact_name": "", "role": "", "email": "", "url": "https://gbiomed.kuleuven.be/english/research/phd", "priority": "To research", "status": "To research", "notes": "Separate medical PhD track from general KU Leuven doctoral schools"}, {"university": "University College London – Medical School", "country": "United Kingdom", "country_code": "UK", "unit_type": "Medical / Health Sciences", "unit_name": "UCL Medical Sciences Graduate School", "contact_name": "", "role": "", "email": "", "url": "https://www.ucl.ac.uk/medical-sciences/research/graduate-school", "priority": "To research", "status": "To research", "notes": "Large medical faculty with separate graduate school and skills programme"}, {"university": "University of Edinburgh – Medical School", "country": "United Kingdom", "country_code": "UK", "unit_type": "Medical / Health Sciences", "unit_name": "Edinburgh Medical School Doctoral Training", "contact_name": "", "role": "", "email": "", "url": "https://www.ed.ac.uk/medicine-vet-medicine/postgraduate/research/doctoral-training", "priority": "To research", "status": "To research", "notes": "In addition to IAD — medical faculty has own doctoral training budget"}, {"university": "Imperial College London – Faculty of Medicine", "country": "United Kingdom", "country_code": "UK", "unit_type": "Medical / Health Sciences", "unit_name": "Faculty of Medicine Researcher Development", "contact_name": "", "role": "", "email": "", "url": "https://www.imperial.ac.uk/medicine/research-and-impact/research-support/", "priority": "To research", "status": "To research", "notes": "Separate from Graduate School — faculty-level buyer"}, {"university": "University of Oxford – Medical Sciences Division", "country": "United Kingdom", "country_code": "UK", "unit_type": "Medical / Health Sciences", "unit_name": "Medical Sciences Division Doctoral Training", "contact_name": "", "role": "", "email": "", "url": "https://www.medsci.ox.ac.uk/study/research", "priority": "To research", "status": "To research", "notes": "MSD has its own researcher development budget separate from central Oxford"}, {"university": "University of Cambridge – Clinical School", "country": "United Kingdom", "country_code": "UK", "unit_type": "Medical / Health Sciences", "unit_name": "Cambridge Clinical School PhD programme", "contact_name": "", "role": "", "email": "", "url": "https://www.medschl.cam.ac.uk/research/phd/", "priority": "To research", "status": "To research", "notes": "Separate from main Postdoc Academy — clinical school has own doctoral skills programme"}, {"university": "Trinity College Dublin – School of Medicine", "country": "Ireland", "country_code": "IE", "unit_type": "Medical / Health Sciences", "unit_name": "PhD in Medicine / Health Sciences", "contact_name": "", "role": "", "email": "", "url": "https://www.tcd.ie/medicine/postgraduate/phd/", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University College Dublin – School of Medicine", "country": "Ireland", "country_code": "IE", "unit_type": "Medical / Health Sciences", "unit_name": "UCD Health Sciences Graduate Programme", "contact_name": "", "role": "", "email": "", "url": "https://www.ucd.ie/medicine/research/graduateprogrammes/", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University of Helsinki – Faculty of Medicine", "country": "Finland", "country_code": "FI", "unit_type": "Medical / Health Sciences", "unit_name": "Doctoral Programme in Clinical Research (KLTO)", "contact_name": "", "role": "", "email": "", "url": "https://www.helsinki.fi/en/research/doctoral-education/doctoral-programmes", "priority": "To research", "status": "To research", "notes": "Helsinki doctoral programme in clinical research — fits scientific writing exactly"}, {"university": "Aalto University – School of Science (Biomedical)", "country": "Finland", "country_code": "FI", "unit_type": "Medical / Health Sciences", "unit_name": "Doctoral programme health technology & biosciences", "contact_name": "", "role": "", "email": "", "url": "https://www.aalto.fi/en/study-at-aalto/doctoral-education", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University of Amsterdam – Amsterdam UMC", "country": "Netherlands", "country_code": "NL", "unit_type": "Medical / Health Sciences", "unit_name": "Amsterdam UMC PhD training program", "contact_name": "", "role": "", "email": "", "url": "https://www.amsterdamumc.org/en/research/phd-education.htm", "priority": "To research", "status": "To research", "notes": "Amsterdam UMC merges AMC and VUmc — very large medical PhD population"}, {"university": "Leiden University Medical Center (LUMC)", "country": "Netherlands", "country_code": "NL", "unit_type": "Medical / Health Sciences", "unit_name": "PhD programs LUMC", "contact_name": "", "role": "", "email": "", "url": "https://www.lumc.nl/research/phd-programs/", "priority": "To research", "status": "To research", "notes": ""}, {"university": "Erasmus University Rotterdam – Erasmus MC", "country": "Netherlands", "country_code": "NL", "unit_type": "Medical / Health Sciences", "unit_name": "Erasmus MC PhD education", "contact_name": "", "role": "", "email": "", "url": "https://www.erasmusmc.nl/en/research/phd-education", "priority": "To research", "status": "To research", "notes": "Rotterdam medical center — strong research culture"}, {"university": "Radboud University Medical Center", "country": "Netherlands", "country_code": "NL", "unit_type": "Medical / Health Sciences", "unit_name": "Radboudumc PhD training", "contact_name": "", "role": "", "email": "", "url": "https://www.radboudumc.nl/en/research/phd-training", "priority": "To research", "status": "To research", "notes": ""}, {"university": "Ghent University – Faculty of Medicine and Health Sciences", "country": "Belgium", "country_code": "BE", "unit_type": "Medical / Health Sciences", "unit_name": "Doctoral School Biomedical and Health Sciences", "contact_name": "", "role": "", "email": "", "url": "https://www.ugent.be/doctoralschool/en/biomedical", "priority": "To research", "status": "To research", "notes": "Separate doctoral school from main Ghent structure — own budget and coordinator"}, {"university": "University of Bern – Faculty of Medicine", "country": "Switzerland", "country_code": "CH", "unit_type": "Medical / Health Sciences", "unit_name": "Graduate School for Cellular and Biomedical Sciences (GCB)", "contact_name": "", "role": "", "email": "", "url": "https://gcb.unibe.ch/", "priority": "To research", "status": "To research", "notes": "DFG-style Swiss funded doctoral school — significant transferable-skills budget"}, {"university": "University of Zurich – Faculty of Medicine", "country": "Switzerland", "country_code": "CH", "unit_type": "Medical / Health Sciences", "unit_name": "Life Science Zurich Graduate School (LSZGS)", "contact_name": "", "role": "", "email": "", "url": "https://www.lifescience-graduateschool.uzh.ch/", "priority": "To research", "status": "To research", "notes": "Joint UZH-ETH graduate school for life sciences; very large with own training programme"}, {"university": "University of Lausanne (UNIL) – Faculty of Biology and Medicine", "country": "Switzerland", "country_code": "CH", "unit_type": "Medical / Health Sciences", "unit_name": "EDOC doctoral programme (UNIL component)", "contact_name": "", "role": "", "email": "", "url": "https://www.unil.ch/fbm/en/home/menuinst/phd-at-the-fbm.html", "priority": "To research", "status": "To research", "notes": ""}, {"university": "Charles University – 1st and 2nd Medical Faculty", "country": "Czech Republic", "country_code": "CZ", "unit_type": "Medical / Health Sciences", "unit_name": "PhD studies in medicine", "contact_name": "", "role": "", "email": "", "url": "https://www.cuni.cz/UKEN-161.html", "priority": "To research", "status": "To research", "notes": "Multiple medical faculties each with doctoral coordinators"}, {"university": "Jagiellonian University Medical College", "country": "Poland", "country_code": "PL", "unit_type": "Medical / Health Sciences", "unit_name": "PhD Program / Doctoral School", "contact_name": "", "role": "", "email": "", "url": "https://www.cm.uj.edu.pl/en_GB/science/doctoral-school", "priority": "To research", "status": "To research", "notes": "Kraków medical college — one of Poland's oldest; growing internationalisation"}, {"university": "University of Warsaw – Medical Faculty", "country": "Poland", "country_code": "PL", "unit_type": "Medical / Health Sciences", "unit_name": "Medical Doctoral School", "contact_name": "", "role": "", "email": "", "url": "https://szkolydoktorskie.uw.edu.pl/en/", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University of Tartu – Faculty of Medicine", "country": "Estonia", "country_code": "EE", "unit_type": "Medical / Health Sciences", "unit_name": "PhD Programme in Medicine", "contact_name": "", "role": "", "email": "", "url": "https://www.ut.ee/en/studying/doctoral-studies", "priority": "To research", "status": "To research", "notes": "Baltic region flagship — English-friendly"}, {"university": "Semmelweis University Budapest", "country": "Hungary", "country_code": "HU", "unit_type": "Medical / Health Sciences", "unit_name": "Doctoral School of Clinical Medicine and Theoretical Sciences", "contact_name": "", "role": "", "email": "", "url": "https://semmelweis.hu/en/phd/", "priority": "To research", "status": "To research", "notes": "Hungary's main medical university; fast-internationalizing"}, {"university": "Bologna University – Faculty of Medicine", "country": "Italy", "country_code": "IT", "unit_type": "Medical / Health Sciences", "unit_name": "PhD in Medical Sciences / Biomedical Research", "contact_name": "", "role": "", "email": "", "url": "https://www.unibo.it/en/study/phd", "priority": "To research", "status": "To research", "notes": "Italy's oldest university; strong publication culture"}, {"university": "Sapienza Rome – Faculty of Medicine", "country": "Italy", "country_code": "IT", "unit_type": "Medical / Health Sciences", "unit_name": "PhD programs in Biomedical Sciences", "contact_name": "", "role": "", "email": "", "url": "https://www.uniroma1.it/en/pagina/phd-programmes", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University of Lyon 1 Claude Bernard – Faculty of Medicine", "country": "France", "country_code": "FR", "unit_type": "Medical / Health Sciences", "unit_name": "ED Interdisciplinaire Sciences-Santé (EDISS)", "contact_name": "", "role": "", "email": "", "url": "https://ediss.universite-lyon.fr/", "priority": "To research", "status": "To research", "notes": "Largest medical doctoral school in Lyon"}, {"university": "Université Paris Cité – Faculty of Health", "country": "France", "country_code": "FR", "unit_type": "Medical / Health Sciences", "unit_name": "PhD programme Paris Cité health", "contact_name": "", "role": "", "email": "", "url": "https://u-paris.fr/en/research-phd/", "priority": "To research", "status": "To research", "notes": "Paris Cité formed from merger of Paris Descartes and Paris Diderot"}, {"university": "Complutense University Madrid – Faculty of Medicine", "country": "Spain", "country_code": "ES", "unit_type": "Medical / Health Sciences", "unit_name": "PhD in Biomedical Research", "contact_name": "", "role": "", "email": "", "url": "https://www.ucm.es/estudios/doctorado-biomedical", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University of Barcelona – Faculty of Medicine", "country": "Spain", "country_code": "ES", "unit_type": "Medical / Health Sciences", "unit_name": "PhD in Biomedicine", "contact_name": "", "role": "", "email": "", "url": "https://www.ub.edu/portal/web/medicina/doctorat", "priority": "To research", "status": "To research", "notes": ""}, {"university": "University of Lisbon – Faculty of Medicine", "country": "Portugal", "country_code": "PT", "unit_type": "Medical / Health Sciences", "unit_name": "PhD in Clinical and Health Research", "contact_name": "", "role": "", "email": "", "url": "https://www.medicina.ulisboa.pt/en", "priority": "To research", "status": "To research", "notes": ""}];
+/* PROSPECT_DATA_END */
 
-const FLAGS = {AT:'🇦🇹',DE:'🇩🇪',CH:'🇨🇭',UK:'🇬🇧',IE:'🇮🇪',IS:'🇮🇸',NL:'🇳🇱',BE:'🇧🇪',SE:'🇸🇪',DK:'🇩🇰',NO:'🇳🇴',FI:'🇫🇮',FR:'🇫🇷',IT:'🇮🇹',ES:'🇪🇸',PT:'🇵🇹',CZ:'🇨🇿',PL:'🇵🇱',EE:'🇪🇪',HU:'🇭🇺',SI:'🇸🇮'};
-const AVC = ['av0','av1','av2','av3','av4','av5','av6'];
+const GU='YOUR-GITHUB-USERNAME', GR='YOUR-REPO-NAME', GB='main';
+const CK='abm_v5', TTL=5*60*1000;
+const NK='abm_notes', EK='abm_edits';
 
-let ALL = [], filtered = [], prioOnly = false;
-let activeCountry = 'ALL', activeUnit = 'ALL';
-let verified = new Set(), checking = new Set();
-let verifiedBase = 0;
+const FL={AT:'\u{1F1E6}\u{1F1F9}',DE:'\u{1F1E9}\u{1F1EA}',CH:'\u{1F1E8}\u{1F1ED}',UK:'\u{1F1EC}\u{1F1E7}',IE:'\u{1F1EE}\u{1F1EA}',IS:'\u{1F1EE}\u{1F1F8}',NL:'\u{1F1F3}\u{1F1F1}',BE:'\u{1F1E7}\u{1F1EA}',SE:'\u{1F1F8}\u{1F1EA}',DK:'\u{1F1E9}\u{1F1F0}',NO:'\u{1F1F3}\u{1F1F4}',FI:'\u{1F1EB}\u{1F1EE}',FR:'\u{1F1EB}\u{1F1F7}',IT:'\u{1F1EE}\u{1F1F9}',ES:'\u{1F1EA}\u{1F1F8}',PT:'\u{1F1F5}\u{1F1F9}',CZ:'\u{1F1E8}\u{1F1FF}',PL:'\u{1F1F5}\u{1F1F1}',EE:'\u{1F1EA}\u{1F1EA}',HU:'\u{1F1ED}\u{1F1FA}',SI:'\u{1F1F8}\u{1F1EE}'};
+const AV=['av0','av1','av2','av3','av4','av5','av6'];
 
-function csvUrl(){
-  return 'https://raw.githubusercontent.com/'+GITHUB_USER+'/'+GITHUB_REPO+'/'+GITHUB_BRANCH+'/'+CSV_FILE;
-}
+let ALL=[], filtered=[], activeC='ALL', activeU='ALL', allCtry=[];
+let lastSeen=parseInt(localStorage.getItem('abm_seen')||'0');
+let notes=JSON.parse(localStorage.getItem(NK)||'{}');
+let edits=JSON.parse(localStorage.getItem(EK)||'{}');
+let modalIdx=null, modalMode=null;
 
-function parseCSV(text){
-  const lines = text.trim().split('\n');
-  const headers = lines[0].split(',').map(h=>h.trim().replace(/^"|"$/g,''));
+// ── DATA ──────────────────────────────────────────────────────────────────────
+function cGet(){try{const r=localStorage.getItem(CK);if(!r)return null;const p=JSON.parse(r);if(Date.now()-p.ts>TTL)return null;return p.d;}catch(e){return null;}}
+function cSet(d){try{localStorage.setItem(CK,JSON.stringify({ts:Date.now(),d}));}catch(e){}}
+
+function pCSV(txt){
+  const lines=txt.trim().split('\n');
+  const hdr=lines[0].split(',').map(h=>h.trim().replace(/^"|"$/g,''));
   return lines.slice(1).map(line=>{
-    const vals = [];
-    let cur='',inq=false;
+    const v=[]; let c='',q=false;
     for(let i=0;i<line.length;i++){
-      const c=line[i];
-      if(c==='"'&&!inq){inq=true;}
-      else if(c==='"'&&inq&&line[i+1]==='"'){cur+='"';i++;}
-      else if(c==='"'&&inq){inq=false;}
-      else if(c===','&&!inq){vals.push(cur.trim());cur='';}
-      else{cur+=c;}
+      const ch=line[i];
+      if(ch==='"'&&!q)q=true;
+      else if(ch==='"'&&q&&line[i+1]==='"'){c+='"';i++;}
+      else if(ch==='"'&&q)q=false;
+      else if(ch===','&&!q){v.push(c.trim());c='';}
+      else c+=ch;
     }
-    vals.push(cur.trim());
-    const obj={};
-    headers.forEach((h,i)=>obj[h]=vals[i]||'');
-    return obj;
+    v.push(c.trim());
+    const o={};hdr.forEach((h,i)=>o[h]=(v[i]||'').trim());return o;
   }).filter(r=>r.university&&r.university.trim());
 }
 
+function csvUrl(){return GU==='YOUR-GITHUB-USERNAME'?'prospects.csv':'https://raw.githubusercontent.com/'+GU+'/'+GR+'/'+GB+'/prospects.csv';}
+function stUrl(){return GU==='YOUR-GITHUB-USERNAME'?'crawl_status.json':'https://raw.githubusercontent.com/'+GU+'/'+GR+'/'+GB+'/crawl_status.json';}
+
 async function loadData(){
-  let url = csvUrl();
-  if(GITHUB_USER==='YOUR-GITHUB-USERNAME'){
-    url = 'prospects.csv';
+  // Use embedded data first (fastest)
+  if(window.PROSPECT_DATA&&window.PROSPECT_DATA.length){
+    ALL=window.PROSPECT_DATA;boot();bgRefresh();return;
   }
+  // Fall back to cached
+  const cached=cGet();
+  if(cached&&cached.length){ALL=cached;boot();bgRefresh();return;}
+  // Fresh fetch
   try{
-    const r = await fetch(url+'?v='+Date.now());
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const text = await r.text();
-    ALL = parseCSV(text);
-    verifiedBase = ALL.filter(d=>d.status&&d.status.toLowerCase().includes('verified')).length;
-    updateVerifiedBadge();
-    buildFilters();
-    filtered=[...ALL];
-    doSort('prio');
-    updateStats();
-    showToast('✓ Loaded '+ALL.length+' contacts from '+url.split('/').pop());
+    const r=await fetch(csvUrl());
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    ALL=pCSV(await r.text());cSet(ALL);boot();loadStatus();
   }catch(e){
-    document.getElementById('results').innerHTML='<div class="empty"><div style="font-size:32px;margin-bottom:12px">⚠️</div><div style="font-size:15px;font-weight:600;margin-bottom:8px">Could not load data</div><div style="font-size:12px">'+e.message+'<br><br>Make sure GITHUB_USER and GITHUB_REPO are set at the top of the script,<br>and that prospects.csv is committed to your repository.</div></div>';
-    document.getElementById('rcount').textContent='Error loading data';
+    document.getElementById('results').innerHTML='<div class="empty"><div style="font-size:32px;margin-bottom:12px">\u26A0</div><div style="font-size:15px;font-weight:600;margin-bottom:8px">Could not load data</div><div style="font-size:12px">'+e.message+'</div></div>';
+    document.getElementById('rcc').textContent='Error';
   }
 }
 
-function buildFilters(){
-  const countries=[...new Set(ALL.map(d=>d.country_code).filter(Boolean))].sort((a,b)=>{
-    const na=ALL.find(d=>d.country_code===a)?.country||a;
-    const nb=ALL.find(d=>d.country_code===b)?.country||b;
-    return na.localeCompare(nb);
-  });
-  const cc=document.getElementById('countryChips');
-  cc.innerHTML='<div class="chip con on" onclick="setCountry(\'ALL\',this)">All countries</div>';
-  countries.forEach(c=>{
-    const flag=FLAGS[c]||'';
-    const name=ALL.find(d=>d.country_code===c)?.country||c;
-    cc.innerHTML+=`<div class="chip con" onclick="setCountry('${c}',this)">${flag} ${name}</div>`;
-  });
+async function bgRefresh(){
+  try{
+    const r=await fetch(csvUrl()+'?nc='+Date.now());if(!r.ok)return;
+    const fresh=pCSV(await r.text());
+    if(fresh.length!==ALL.length){const added=fresh.length-ALL.length;ALL=fresh;cSet(ALL);buildF();doSearch();if(added>0)toast('\u2728 '+added+' new contact'+(added>1?'s':'')+' added!');}
+    loadStatus();
+  }catch(e){}
+}
 
+async function loadStatus(){
+  try{
+    const r=await fetch(stUrl()+'?nc='+Date.now());if(!r.ok)return;
+    const s=await r.json();
+    if(s.last_run){
+      const d=new Date(s.last_run);
+      document.getElementById('sbarT').textContent='Auto-updated \u00b7 Last: '+d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+      document.getElementById('sbarR').textContent=s.coverage_pct+'% contacts filled \u00b7 '+s.total_rows+' total';
+    }
+  }catch(e){}
+}
+
+function boot(){buildF();filtered=[...ALL];doSort('named');updS();localStorage.setItem('abm_seen',ALL.length.toString());}
+
+// ── FILTERS ───────────────────────────────────────────────────────────────────
+function buildF(){
+  const byC={};ALL.forEach(d=>{if(d.country_code)byC[d.country_code]=(byC[d.country_code]||0)+1;});
+  allCtry=Object.entries(byC).map(([c,n])=>({code:c,count:n,name:ALL.find(d=>d.country_code===c)?.country||c})).sort((a,b)=>a.name.localeCompare(b.name));
+  renderDrop('');
   const units=[...new Set(ALL.map(d=>d.unit_type).filter(Boolean))].sort();
-  const uc=document.getElementById('unitChips');
-  uc.innerHTML='<div class="chip uon on" onclick="setUnit(\'ALL\',this)">All units</div>';
-  units.forEach(u=>{
-    uc.innerHTML+=`<div class="chip uon" onclick="setUnit('${u}',this)">${u}</div>`;
+  const uc=document.getElementById('uch');
+  uc.innerHTML='<div class="chip on" onclick="setUnit(\'ALL\',this)">All</div>';
+  units.forEach(u=>{const el=document.createElement('div');el.className='chip';el.textContent=u;el.onclick=function(){setUnit(u,this);};uc.appendChild(el);});
+}
+
+function renderDrop(f){
+  const fl=f.toLowerCase();
+  const items=[{code:'ALL',name:'All countries',count:ALL.length},...allCtry].filter(c=>!fl||c.name.toLowerCase().includes(fl)||c.code.toLowerCase().includes(fl));
+  const list=document.getElementById('cdL');list.innerHTML='';
+  items.forEach(c=>{
+    const el=document.createElement('div');el.className='cdo'+(activeC===c.code?' sl':'');
+    el.innerHTML='<span style="width:20px;text-align:center">'+(c.code==='ALL'?'\u{1F30D}':(FL[c.code]||''))+'</span><span>'+c.name+'</span><span class="cn">'+c.count+'</span>';
+    el.onclick=()=>selC(c.code,c.name);list.appendChild(el);
   });
 }
+function filterDrop(v){renderDrop(v);}
+function selC(code,name){
+  activeC=code;
+  document.getElementById('csF').textContent=code==='ALL'?'\u{1F30D}':(FL[code]||'\u{1F30D}');
+  document.getElementById('csT').textContent=code==='ALL'?'All countries':name;
+  document.getElementById('csb').classList.remove('op');document.getElementById('csd').classList.remove('op');
+  document.getElementById('cds').value='';renderDrop('');doSearch();
+}
+function toggleDrop(){
+  document.getElementById('csb').classList.toggle('op');document.getElementById('csd').classList.toggle('op');
+  if(document.getElementById('csd').classList.contains('op'))setTimeout(()=>document.getElementById('cds').focus(),40);
+}
+document.addEventListener('click',e=>{if(!document.getElementById('csW').contains(e.target)){document.getElementById('csb').classList.remove('op');document.getElementById('csd').classList.remove('op');}});
+function setUnit(u,el){document.querySelectorAll('#uch .chip').forEach(x=>x.classList.remove('on'));el.classList.add('on');activeU=u;doSearch();}
 
-function setCountry(c,el){
-  document.querySelectorAll('.con').forEach(x=>x.classList.remove('on'));
-  el.classList.add('on');
-  activeCountry=c; doSearch();
-}
-function setUnit(u,el){
-  document.querySelectorAll('.uon').forEach(x=>x.classList.remove('on'));
-  el.classList.add('on');
-  activeUnit=u; doSearch();
-}
-function togglePrioOnly(){
-  prioOnly=!prioOnly;
-  document.getElementById('prioBtn').classList.toggle('on',prioOnly);
-  doSearch();
-}
-
+// ── SEARCH / SORT ─────────────────────────────────────────────────────────────
 function doSearch(){
   const q=(document.getElementById('q').value||'').toLowerCase().trim();
   filtered=ALL.filter(d=>{
-    const txt=[d.university,d.country,d.country_code,d.unit_name,d.contact_name,d.role,d.email,d.unit_type,d.notes].join(' ').toLowerCase();
-    return (!q||txt.includes(q))
-      &&(activeCountry==='ALL'||d.country_code===activeCountry)
-      &&(activeUnit==='ALL'||d.unit_type===activeUnit)
-      &&(!prioOnly||d.priority==='A');
+    const t=[d.university,d.country,d.country_code,d.unit_name,d.contact_name,d.role,d.email,d.unit_type,d.notes].join(' ').toLowerCase();
+    return(!q||t.includes(q))&&(activeC==='ALL'||d.country_code===activeC)&&(activeU==='ALL'||d.unit_type===activeU);
   });
-  updateStats(); render();
+  updS();doSort(document.getElementById('sss').value);
 }
-
 function doSort(v){
-  const pMap={A:0,B:1,C:2};
-  if(v==='alpha') filtered.sort((a,b)=>a.university.localeCompare(b.university));
-  else if(v==='email') filtered.sort((a,b)=>(b.email?1:0)-(a.email?1:0));
-  else if(v==='country') filtered.sort((a,b)=>a.country.localeCompare(b.country)||a.university.localeCompare(b.university));
-  else filtered.sort((a,b)=>(pMap[a.priority]??2)-(pMap[b.priority]??2)||a.university.localeCompare(b.university));
+  if(v==='alpha')filtered.sort((a,b)=>a.university.localeCompare(b.university));
+  else if(v==='email')filtered.sort((a,b)=>(b.email?1:0)-(a.email?1:0));
+  else if(v==='country')filtered.sort((a,b)=>a.country.localeCompare(b.country)||a.university.localeCompare(b.university));
+  else if(v==='newest')filtered.sort((a,b)=>ALL.indexOf(b)-ALL.indexOf(a));
+  else filtered.sort((a,b)=>(!a.contact_name?1:0)-(!b.contact_name?1:0)||a.university.localeCompare(b.university));
   render();
 }
 
-function ini(name){
-  if(!name||name.length<2) return '?';
-  const w=name.replace(/^(Dr\.|Prof\.|Mag\.|MA\.?)\s*/gi,'').trim().split(/\s+/);
-  return ((w[0]||'')[0]||'').toUpperCase()+((w[1]||'')[0]||'').toUpperCase();
+// ── CARD RENDER ───────────────────────────────────────────────────────────────
+function ini(n){
+  if(!n||n.length<2)return'?';
+  const w=n.replace(/^(Dr\.|Prof\.|Mag\.|MA\.?)\s*/gi,'').trim().split(/\s+/);
+  return((w[0]||'')[0]||'').toUpperCase()+((w[1]||'')[0]||'').toUpperCase();
+}
+
+function safeUrl(u){
+  if(!u||!u.trim()||u.trim()==='#')return null;
+  u=u.trim();
+  if(!u.startsWith('http'))u='https://'+u;
+  return u;
 }
 
 function renderCard(d,idx){
-  const isV=verified.has(idx), isC=checking.has(idx);
-  const cardCls='card'+(d.priority==='A'?' pa':d.priority==='B'?' pb':'');
+  const isNew=idx>=lastSeen;
   const vr=d.status&&d.status.toLowerCase().includes('verified')&&!d.status.toLowerCase().includes('unit');
   const uv=d.status&&d.status.toLowerCase().includes('unit');
-  let btnLbl='<i class="ti ti-scan"></i> Verify', btnCls='vbtn';
-  if(isV){btnLbl='<i class="ti ti-circle-check"></i> Confirmed';btnCls='vbtn ok';}
-  else if(isC){btnLbl='Checking…';btnCls='vbtn chk';}
-  const flag=FLAGS[d.country_code]||'';
+  const flag=FL[d.country_code]||'';
+  const userNote=notes[idx];
+  const e=edits[idx]||{};
+  const name=e.contact_name||d.contact_name||'';
+  const role=e.role||d.role||'';
+  const email=e.email||d.email||'';
+  const url=safeUrl(e.url||d.url);
+  const url_li=e.linkedin||d.linkedin||'';
+  const hasNote=!!userNote;
+  const hasEdit=!!(e.contact_name||e.email||e.role||e.url);
 
-  return `<div class="${cardCls}">
-    <div class="card-hdr">
-      <div>
-        <a class="uni-link" href="${d.url||'#'}" target="_blank" rel="noopener">
-          ${d.university}
-          ${d.url?'<i class="ti ti-external-link" style="font-size:11px;opacity:.45"></i>':''}
-        </a>
-        <div class="unit-name">${d.unit_name||''}</div>
-      </div>
-      <div class="badges">
-        <span class="bdg ct">${flag} ${d.country_code||''}</span>
-        ${d.priority==='A'?'<span class="bdg pa">Priority A</span>':d.priority==='B'?'<span class="bdg pb">Priority B</span>':''}
-        ${vr?'<span class="bdg vr"><i class="ti ti-circle-check" style="font-size:10px"></i> Verified</span>':''}
-        ${uv&&!vr?'<span class="bdg uv">Unit verified</span>':''}
-      </div>
-    </div>
-    ${d.contact_name
-      ? `<div class="person-row">
-          <div class="av ${AVC[idx%7]}">${ini(d.contact_name)}</div>
-          <div>
-            <a class="pname" href="${d.url||'#'}" target="_blank" rel="noopener">${d.contact_name}</a>
-            <div class="prole">${d.role||''}</div>
-          </div>
-        </div>`
-      : '<div class="noperson"><i class="ti ti-user-question" style="font-size:12px;vertical-align:-1px"></i> Contact: open university link to find current head</div>'
-    }
-    ${d.email
-      ? `<div class="email-row"><i class="ti ti-mail" style="font-size:12px;opacity:.55"></i><a class="elink" href="mailto:${d.email}">${d.email}</a></div>`
-      : ''
-    }
-    <div class="card-foot">
-      <div class="card-tags"><span class="utag">${d.unit_type||''}</span></div>
-      <button class="${btnCls}" onclick="verifyCard(${idx},event)">${btnLbl}</button>
-    </div>
-    ${d.notes?'<div class="note">'+d.notes+'</div>':''}
-  </div>`;
+  const uniLink=url
+    ? '<a class="ul" href="'+url+'" target="_blank" rel="noopener noreferrer">'+d.university+(isNew?'<span style="font-family:sans-serif;font-size:9px;font-weight:700;background:var(--rose);color:#fff;padding:2px 6px;border-radius:5px;margin-left:5px;vertical-align:middle">NEW</span>':'')+'<span class="ext-icon">\u2197</span></a>'
+    : '<span class="ul" style="cursor:default">'+d.university+'</span>';
+
+  const pnameEl=url
+    ? '<a class="pn" href="'+url+'" target="_blank" rel="noopener noreferrer">'+name+'</a>'
+    : '<span class="pn" style="cursor:default">'+name+'</span>';
+
+  return '<div class="card'+(isNew?' nw':'')+(hasNote?' has-note':'')+'" id="c'+idx+'">'+
+    '<div class="ch"><div>'+uniLink+'<div class="un">'+(d.unit_name||'')+'</div></div>'+
+    '<div class="bgs"><span class="bg ct">'+flag+' '+(d.country_code||'')+'</span>'+
+    (vr?'<span class="bg vr">\u2713 Verified</span>':'')+
+    (uv&&!vr?'<span class="bg uv">Unit verified</span>':'')+
+    '</div></div>'+
+    (name
+      ?'<div class="prr"><div class="av '+AV[idx%7]+'">'+ini(name)+'</div><div>'+pnameEl+'<div class="po">'+role+'</div></div></div>'
+      :'<div class="np">No contact yet \u2014 click \u201cEdit contact\u201d to add one</div>')+
+    (email?'<div class="er">\u2709 <a class="el" href="mailto:'+email+'">'+email+'</a></div>':'')+
+    (url_li?'<div class="er">&#128279; <a class="el" href="'+url_li+'" target="_blank" rel="noopener noreferrer">LinkedIn profile</a></div>':'')+
+    (d.notes?'<div class="nt">'+d.notes+'</div>':'')+
+    (userNote?'<div class="user-note-box"><strong>\u{1F4DD} Your note</strong>'+escH(userNote)+'</div>':'')+
+    '<div class="card-actions">'+
+      '<button class="abt note" onclick="openNote('+idx+')">'+( hasNote?'\u270F\uFE0F Edit note':'\u{1F4DD} Add note')+'</button>'+
+      '<button class="abt edit" onclick="openEdit('+idx+')">\u270F\uFE0F Edit contact</button>'+
+      (hasEdit?'<span class="abt edited">\u2713 Locally edited</span>':'')+
+    '</div>'+
+  '</div>';
 }
+
+function escH(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');}
 
 function render(){
   const el=document.getElementById('results');
   if(!filtered.length){
-    el.innerHTML='<div class="empty"><div style="font-size:36px;margin-bottom:12px">🔍</div><div style="font-size:15px;font-weight:600;margin-bottom:8px">No results</div><div style="font-size:13px">Try different search terms or clear filters</div></div>';
-    document.getElementById('rcount').textContent='No results found';
-    return;
+    el.innerHTML='<div class="empty"><div style="font-size:36px;margin-bottom:12px">\u{1F50D}</div><div style="font-size:15px;font-weight:600;margin-bottom:8px">No results</div><div style="font-size:13px">Try different search terms or clear filters</div></div>';
+    document.getElementById('rcc').textContent='No results found';return;
   }
-  el.innerHTML=filtered.map((d)=>renderCard(d,ALL.indexOf(d))).join('');
-  document.getElementById('rcount').textContent='Showing '+filtered.length+' of '+ALL.length+' contacts';
+  el.innerHTML='';
+  document.getElementById('rcc').textContent='Showing '+filtered.length+' of '+ALL.length+' contacts';
+  let i=0;
+  function chunk(){
+    const frag=document.createDocumentFragment(),end=Math.min(i+20,filtered.length);
+    for(;i<end;i++){const d=filtered[i],idx=ALL.indexOf(d),div=document.createElement('div');div.innerHTML=renderCard(d,idx);frag.appendChild(div.firstChild);}
+    el.appendChild(frag);if(i<filtered.length)requestAnimationFrame(chunk);
+  }
+  requestAnimationFrame(chunk);
 }
 
-function updateStats(){
+function updS(){
   document.getElementById('stT').textContent=filtered.length;
   document.getElementById('stE').textContent=filtered.filter(d=>d.email).length;
-  document.getElementById('stA').textContent=filtered.filter(d=>d.priority==='A').length;
+  document.getElementById('stN').textContent=filtered.filter(d=>d.contact_name).length;
+  document.getElementById('stL').textContent=filtered.filter(d=>d.linkedin).length;
   document.getElementById('stC').textContent=new Set(filtered.map(d=>d.country_code)).size;
-  document.getElementById('heroSub').textContent=filtered.length+' contacts · '+new Set(filtered.map(d=>d.country_code)).size+' countries · AI-verified · July 2026';
+  document.getElementById('heroSub').textContent=ALL.length+' contacts \u00b7 '+new Set(ALL.map(d=>d.country_code)).size+' countries \u00b7 Updated automatically';
 }
 
-function updateVerifiedBadge(){
-  document.getElementById('vbadge').textContent=(verifiedBase+verified.size)+' verified';
+// ── MODALS ────────────────────────────────────────────────────────────────────
+function openNote(idx){
+  modalIdx=idx;modalMode='note';
+  const d=ALL[idx];
+  document.getElementById('mTitle').textContent='\u{1F4DD} Note \u2014 '+d.university;
+  document.getElementById('mSub').textContent=d.contact_name||d.unit_name||'';
+  document.getElementById('mNoteWrap').style.display='block';
+  document.getElementById('mEditWrap').style.display='none';
+  document.getElementById('mNote').value=notes[idx]||'';
+  document.getElementById('mDeleteBtn').style.display=notes[idx]?'block':'none';
+  document.getElementById('modalBg').classList.add('op');
+  setTimeout(()=>document.getElementById('mNote').focus(),80);
 }
 
-function verifyCard(idx,e){
-  e.stopPropagation();
-  if(verified.has(idx)) return;
-  checking.add(idx); render();
-  setTimeout(()=>{
-    checking.delete(idx); verified.add(idx);
-    updateVerifiedBadge(); render();
-    const d=ALL[idx];
-    showToast('✓ '+( d.contact_name||d.university)+' re-checked');
-  },1400);
+function openEdit(idx){
+  modalIdx=idx;modalMode='edit';
+  const d=ALL[idx];const e=edits[idx]||{};
+  document.getElementById('mTitle').textContent='\u270F\uFE0F Edit contact \u2014 '+d.university;
+  document.getElementById('mSub').textContent='Saved locally in your browser';
+  document.getElementById('mNoteWrap').style.display='none';
+  document.getElementById('mEditWrap').style.display='block';
+  document.getElementById('eName').value=e.contact_name||d.contact_name||'';
+  document.getElementById('eRole').value=e.role||d.role||'';
+  document.getElementById('eEmail').value=e.email||d.email||'';
+  document.getElementById('eUrl').value=e.url||d.url||'';
+  document.getElementById('eLi').value=e.linkedin||d.linkedin||'';
+  document.getElementById('mDeleteBtn').style.display=edits[idx]?'block':'none';
+  document.getElementById('modalBg').classList.add('op');
+  setTimeout(()=>document.getElementById('eName').focus(),80);
 }
 
+function saveModal(){
+  if(modalMode==='note'){
+    const txt=(document.getElementById('mNote').value||'').trim();
+    if(txt)notes[modalIdx]=txt; else delete notes[modalIdx];
+    localStorage.setItem(NK,JSON.stringify(notes));
+    toast('\u2713 Note saved');
+  } else {
+    const d=ALL[modalIdx];
+    const e={
+      contact_name:document.getElementById('eName').value.trim(),
+      role:document.getElementById('eRole').value.trim(),
+      email:document.getElementById('eEmail').value.trim(),
+      url:document.getElementById('eUrl').value.trim(),
+      linkedin:document.getElementById('eLi').value.trim(),
+    };
+    Object.keys(e).forEach(k=>{if(!e[k]||e[k]===(d[k]||''))delete e[k];});
+    if(Object.keys(e).length)edits[modalIdx]=e; else delete edits[modalIdx];
+    localStorage.setItem(EK,JSON.stringify(edits));
+    toast('\u2713 Contact updated');
+  }
+  closeModal();
+  const card=document.getElementById('c'+modalIdx);
+  if(card){const tmp=document.createElement('div');tmp.innerHTML=renderCard(ALL[modalIdx],modalIdx);card.replaceWith(tmp.firstChild);}
+}
+
+function deleteModal(){
+  if(modalMode==='note'){delete notes[modalIdx];localStorage.setItem(NK,JSON.stringify(notes));toast('Note deleted');}
+  else{delete edits[modalIdx];localStorage.setItem(EK,JSON.stringify(edits));toast('Edit cleared');}
+  closeModal();
+  const card=document.getElementById('c'+modalIdx);
+  if(card){const tmp=document.createElement('div');tmp.innerHTML=renderCard(ALL[modalIdx],modalIdx);card.replaceWith(tmp.firstChild);}
+}
+
+function closeModal(){document.getElementById('modalBg').classList.remove('op');modalIdx=null;modalMode=null;}
+document.getElementById('modalBg').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+// ── EXPORT ────────────────────────────────────────────────────────────────────
 function exportCSV(){
-  if(!filtered.length){showToast('No data to export');return;}
-  const cols=['university','country','unit_type','unit_name','contact_name','role','email','url','priority','status','notes'];
-  const rows=[cols.join(','),...filtered.map(d=>cols.map(c=>'"'+(d[c]||'').replace(/"/g,'""')+'"').join(','))];
-  const blob=new Blob([rows.join('\n')],{type:'text/csv'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='abm_prospects_'+new Date().toISOString().slice(0,10)+'.csv';
-  a.click();
-  showToast('✓ Exported '+filtered.length+' contacts');
+  if(!filtered.length){toast('No data');return;}
+  const cols=['university','country','unit_type','unit_name','contact_name','role','email','linkedin','url','status','notes','your_note'];
+  const rows=[cols.join(','),...filtered.map(d=>{
+    const idx=ALL.indexOf(d);const e=edits[idx]||{};
+    return cols.map(c=>{
+      let v=c==='your_note'?(notes[idx]||''):(e[c]||d[c]||'');
+      return '"'+v.replace(/"/g,'""')+'"';
+    }).join(',');
+  })];
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.join('\n')],{type:'text/csv'}));
+  a.download='abm_prospects_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+  toast('\u2713 Exported '+filtered.length+' contacts');
 }
 
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
-}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
 
+setInterval(bgRefresh,5*60*1000);
 loadData();
+
 </script>
 </body>
 </html>
